@@ -29,12 +29,20 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
 import { AlertComponent } from './_directives/index';
+import { DashboardComponent } from './_dashboard/index';
+
+// VIDEOANGULAR IMPORTS
+
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
 
 // INJECTIONS
-const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule ];
-const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, RegisterComponent];
+
+const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule,  VgCoreModule,  VgControlsModule,  VgOverlayPlayModule,  VgBufferingModule ];
+const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent];
 const SINGLETONSERVICES = [ customHttpProvider, AuthGuard, AlertService, AuthenticationService, UserService];
 
 @NgModule({
