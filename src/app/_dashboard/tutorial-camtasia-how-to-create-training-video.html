@@ -1,0 +1,1273 @@
+﻿<!DOCTYPE html>
+
+
+
+<head>
+    <link rel="stylesheet" href="https://www.techsmith.com/includes/tscresponsive.css?a=6364437186" type="text/css"/>
+    <!--<script type="text/javascript" src="https://www.techsmith.com/includes/extlibs.js"></script>-->
+    <!--<link rel="canonical" href="https://www.techsmith.com/tutorial-camtasia-how-to-create-training-video.html">-->
+    <script type="text/javascript"  src="https://www.techsmith.com/includes/videoplayer/embedded-smart-player.min.js"></script>
+    <script type="text/javascript" src="https://www.techsmith.com/includes/global_scripts.js?a=6363978456"></script>
+    <script type="text/javascript" src="https://www.techsmith.com/includes/cms.js?a=6364434756"></script>
+</head>
+<!-- Foundation PageID: 37268 -->
+<body class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help"
+      data-submenu-nav=".nav-tutorials">
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="revealer">
+    <div class="slider">
+
+
+        <div class="sk-wave-backdrop fs-spinner">
+            <div class="sk-spinner-wave" id="wave">
+                <div class="sk-rect1"></div>
+                <div class="sk-rect2"></div>
+                <div class="sk-rect3"></div>
+                <div class="sk-rect4"></div>
+                <div class="sk-rect5"></div>
+            </div>
+        </div>
+
+        <div id="candy-rack-modal-container" data-fsc-items-container='candy-rack-modals'
+             data-fsc-filter="selected=false"></div>
+
+        <div class="modal fade" id="singleproductmodal" tabindex="-1" role="document">
+            <div class="modal-dialog modal-sm" role="document">
+                <div data-fsc-selections-smartdisplay data-fsc-items-container='single-product'
+                     data-fsc-filter="selected=true"></div>
+            </div>
+        </div>
+
+        <script data-fsc-template-for="single-product" type="text/x-handlebars-template">
+            {{#each items}}
+            {{#each items}}
+            <div class="modal-content">
+                <div class="modal-header fs-modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="text-center">
+                        <img class="fs-product-detail-image" src="{{this.image}}"/>
+                        <div class="fs-product-detail-title">{{display}}</div>
+                    </div>
+                </div>
+                <div class="modal-body clearfix">
+                    <div class="col-xs-12">
+                        <span>Quantity:</span>
+                        <span class="fs-original-unit-price" data-fsc-item-path="{{path}}" data-fsc-item-pricetotal
+                              data-fsc-smartdisplay></span>
+                    </div>
+
+                    <div class="col-xs-6 fs-item-quantity">
+
+                        <div class="tsc-store store-qty-align pull-left">
+                            {{#iff quantity "<" 5 }}
+                            <select class="chosen cart-quantity-chosen store-popup-qty-select fs-product-qty"
+                                    data-path="{{path}}">
+                                {{#select quantity}}
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5+</option>
+                                {{/select}}
+                            </select>
+                            {{ else }}
+                            <input class="store-popup-qty-input t-store-popup-qty-input" inputmode="numeric"
+                                   pattern="[0-9]*" id="qty-input-{{path}}" maxlength="3" value="{{quantity}}"
+                                   data-path="{{path}}" {{#iff attributes.maxQuantity '===' '1' }} disabled{{/iff}} />
+                            {{/iff}}
+                        </div>
+                        <div class="fs-unit-price" data-unit-price-value="{{unitPriceValue}}">&#64;&nbsp;{{unitPrice}}
+                        </div>
+                    </div>
+                    <div class="col-xs-6 fs-item-total">
+                        <span class="fs-current-unit-price" data-fsc-item-path="{{path}}" data-fsc-item-total></span>
+                    </div>
+                    {{#each groups}}
+                    {{#iff type '===' 'config-many'}}
+                    {{#each items}}
+                    <div class="fs-maintenance-message text-center">
+                        <div class="col-xs-12 fs-maintenance-checkbox">
+                            {{#if selected }}
+                            <input type="checkbox" id="fs-single-product-maint" data-path="{{path}}"
+                                   data-fsc-item-path-value="{{path}}" data-fsc-action="Remove"
+                                   data-fsc-item-quantity-value="{{quantity}}" data-fsc-item-path="{{path}}" {{checked
+                                   selected}}/> <label for="fs-single-product-maint">Add one year Maintenance - <span
+                                class="fs-addon-unit-price" data-unit-price-value="{{unitPriceValue}}">{{#currencyFormatter unitPriceValue ../../../../quantity }}{{/currencyFormatter}}</span></label>
+                            {{ else }}
+                            <input type="checkbox" id="fs-single-product-maint" data-path="{{path}}"
+                                   data-fsc-item-path-value="{{path}}" data-fsc-action="Update"
+                                   data-fsc-item-quantity-value="{{quantity}}" data-fsc-item-path="{{path}}" {{checked
+                                   selected}}/> <label for="fs-single-product-maint">Add one year Maintenance - <span
+                                class="fs-addon-unit-price" data-unit-price-value="{{unitPriceValue}}">{{#currencyFormatter unitPriceValue ../../../../quantity }}{{/currencyFormatter}}</span></label>
+                            {{/if}}
+                        </div>
+                        <div class="col-xs-12 fs-maintenance-list">
+                            <ul>
+                                <li>Free Upgrades</li>
+                                <li>Priority Online Support</li>
+                                <li>Volume Discounts</li>
+                                <li>One Master Key</li>
+                            </ul>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{/iff}}
+                    {{/each}}
+                </div>
+                <div class="modal-footer fs-modal-footer">
+                    <div class="fs-footer-wrapper">
+                        {{#each groups}}
+                        {{#iff type '===' 'config-many'}}
+                        <div class="fs-order-total">Total: <span class="fs-total-order-price"
+                                                                 data-fsc-order-total></span></div>
+                        {{/iff}}
+                        {{/each}}
+                        <button type="button"
+                                class="btn btn-primary btn-lg store-popup-checkout t-store-popup-checkout">Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{/each}}
+        </script>
+
+        <script data-fsc-template-for="mini-cart-hover" type="text/x-handlebars-template">
+            <div class="menu-cart arrow_drop">
+                <div class="scroll">
+                    <ul class="no-bullets">
+                        {{#eachByOrder items}}
+                        {{#iff path '!==' 'SystemExtension.shippingcalculation'}}
+                        <li class="mini-cart-item">
+                            <div class="display-table">
+                                <div class="display-table-row">
+                                    <div class="display-table-cell mini-cart-cell-img"><img class="mini-cart-img"
+                                                                                            src="{{this.image}}"></div>
+                                    <div class="display-table-cell mini-cart-info font-size-14">
+                                        <div class="mini-cart-title t-mini-cart-title ">{{display}}</div>
+                                        <div class="mini-cart-item-qty t-mini-cart-item-qty">Quantity: {{quantity}}
+                                        </div>
+                                    </div>
+                                    <div class="display-table-cell mini-cart-item-total vertical-align-bottom">
+                                        {{total}}
+                                    </div>
+                                </div>
+                                {{#each groups}}
+                                {{#each items}}
+                                {{#if selected}}
+                                <div class="display-table-row">
+                                    <div class="display-table-cell"></div>
+                                    <div class="display-table-cell mini-cart-info t-mini-cart-addon-title font-size-14">
+                                        {{display}}
+                                    </div>
+                                    <div class="display-table-cell mini-cart-item-total t-mini-cart-addon-total">
+                                        {{total}}
+                                    </div>
+                                </div>
+                                {{/if}}
+                                {{/each}}
+                                {{/each}}
+                            </div>
+                        </li>
+                        <li class="store-border"></li>
+                        {{/iff}}
+                        {{/eachByOrder}}
+                    </ul>
+                </div>
+                <div class="display-table">
+                    {{#each items}}
+                    {{#each items}}
+                    {{#iff path '===' 'SystemExtension.shippingcalculation'}}
+                    <div class="display-table-row">
+                        <div class="display-table-cell mini-cart-info"></div>
+                        <div class="display-table-cell mini-cart-label font-weight-600">Shipping:</div>
+                        <div class="display-table-cell mini-cart-order-total font-weight-600 t-mini-cart-shipping">
+                            {{this.total}}
+                        </div>
+                    </div>
+                    {{/iff}}
+                    {{/each}}
+                    {{/each}}
+                    <div class="display-table-row">
+                        <div class="display-table-cell mini-cart-info"><span
+                                class="fs-order-item-count t-mini-cart-item-count">{{itemCount this}}</span> {{#isPlural
+                            this }} items{{else}} Item{{/isPlural}}
+                        </div>
+                        <div class="display-table-cell mini-cart-label font-weight-600">Total:</div>
+                        <div class="display-table-cell mini-cart-order-total font-weight-600"><span
+                                class="t-mini-cart-order-total" data-fsc-order-total></span></div>
+                    </div>
+                </div>
+                <div class=""><a href="/store/cart" class="btn btn-primary mini-cart-checkout t-mini-cart-checkout">Review
+                    Cart &amp; Checkout</a></div>
+            </div>
+        </script>
+
+
+        <div class="tsc-header-wrapper">
+            <header class="tsc-header no-bullets">
+
+                <div class="logo-wrapper">
+                    <a class="logo" href="/">
+                        <object class="svg-logo" type="image/svg+xml"
+                                data="https://assets.techsmith.com/Images/interface/logo-light.svg" tabindex="-1">
+                            <img src="https://assets.techsmith.com/Images/interface/techsmith-logo-white.png"
+                                 alt="TechSmith &amp;reg;">
+                        </object>
+                    </a>
+                </div>
+                <div class="menu-trigger-wrapper">
+                    <button type="button" class="menu-trigger" title="Menu"><span>Menu</span></button>
+                </div>
+                <div class="global-nav-wrapper">
+                    <div class="mobile-logo-wrapper"><a class="mobile-logo" href="/">
+                        <object class="svg-logo" type="image/svg+xml"
+                                data="https://assets.techsmith.com/Images/interface/logo.svg" tabindex="-1">
+                            <img src="https://assets.techsmith.com/Images/interface/logo.png" alt="TechSmith &amp;reg;">
+                        </object>
+                    </a>
+                    </div>
+                    <nav class="global-nav" data-section-menu="">
+                        <ul class="global-nav-menu">
+                            <li class="level-1 nav-products">
+                                <a href="https://www.techsmith.com/products.html">Products</a>
+                                <div class="detailed-menu-wrapper">
+                                    <ul class="detailed-menu columns-3">
+                                        <li class="level-2 nav-snagit">
+                                            <div class="product-wrapper">
+                                                <a class="product" href="https://www.techsmith.com/screen-capture.html">
+                                                    <dl>
+                                                        <dt><span class="product-name">Snagit</span>
+                                                            <i class="platform-icon win"></i><i
+                                                                    class="platform-icon mac"></i>
+                                                        </dt>
+                                                        <dd>Screen Capture &amp; Screen Recorder</dd>
+                                                    </dl>
+                                                </a>
+                                                <a href="/download/snagit/" class="promotion">Free Trial</a><a
+                                                    href="http://shop.techsmith.com/store/techsm/pd/productID.289200200"
+                                                    class="promotion">Buy</a>
+                                            </div>
+                                        </li>
+                                        <li class="level-2 nav-camtasia">
+                                            <div class="product-wrapper">
+                                                <a class="product" href="https://www.techsmith.com/video-editor.html">
+                                                    <dl>
+                                                        <dt><span class="product-name">Camtasia</span>
+                                                            <i class="platform-icon win"></i><i
+                                                                    class="platform-icon mac"></i>
+                                                        </dt>
+                                                        <dd>Video Editor</dd>
+                                                    </dl>
+                                                </a>
+                                                <a href="/download/camtasia/" class="promotion">Free Trial</a><a
+                                                    href="http://shop.techsmith.com/store/techsm/pd/productID.289432000"
+                                                    class="promotion">Buy</a>
+                                            </div>
+                                        </li>
+                                        <li class="level-2 nav-httpshoptechsmithcomstoretechsmenuspdproductid289729600">
+                                            <div class="product-wrapper">
+                                                <a class="product"
+                                                   href="http://shop.techsmith.com/store/techsm/en_US/pd/productID.289729600">
+                                                    <dl>
+                                                        <dt><span class="product-name">Snagit/Camtasia Bundle</span>
+                                                            <i class="platform-icon win"></i><i
+                                                                    class="platform-icon mac"></i>
+                                                        </dt>
+                                                        <dd>Buy Together and Save</dd>
+                                                    </dl>
+                                                </a>
+                                                <a href="http://shop.techsmith.com/store/techsm/en_US/pd/productID.289729600"
+                                                   class="promotion">Buy</a>
+                                            </div>
+                                        </li>
+                                        <li class="level-2 nav-techsmith-relay">
+                                            <div class="product-wrapper">
+                                                <a class="product"
+                                                   href="https://www.techsmith.com/techsmith-relay.html">
+                                                    <dl>
+                                                        <dt><span class="product-name">TechSmith Relay</span>
+                                                            <i class="platform-icon win"></i><i
+                                                                    class="platform-icon mac"></i>
+                                                        </dt>
+                                                        <dd>Lecture Capture Solution</dd>
+                                                    </dl>
+                                                </a>
+                                                <a href="https://www.techsmith.com/techsmith-relay.html"
+                                                   class="promotion">Learn More</a>
+                                            </div>
+                                        </li>
+                                        <li class="level-2 nav-screencastcom">
+                                            <div class="product-wrapper">
+                                                <a class="product" href="https://www.techsmith.com/screencastcom.html">
+                                                    <dl>
+                                                        <dt><span class="product-name">Screencast.com</span>
+                                                            <i class="platform-icon win"></i><i
+                                                                    class="platform-icon mac"></i>
+                                                        </dt>
+                                                        <dd>Video &amp; Content Hosting</dd>
+                                                    </dl>
+                                                </a>
+                                                <a href="https://www.techsmith.com/screencastcom.html"
+                                                   class="promotion">Learn More</a>
+                                            </div>
+                                        </li>
+                                        <li class="level-2 nav-morae">
+                                            <div class="product-wrapper">
+                                                <a class="product" href="https://www.techsmith.com/morae.html">
+                                                    <dl>
+                                                        <dt><span class="product-name">Morae</span>
+                                                            <i class="platform-icon win"></i>
+                                                        </dt>
+                                                        <dd>User Experience &amp; Market Research</dd>
+                                                    </dl>
+                                                </a>
+                                                <a href="https://www.techsmith.com/morae.html" class="promotion">Learn
+                                                    More</a><a
+                                                    href="http://shop.techsmith.com/store/techsm/pd/productID.289556700"
+                                                    class="promotion">Buy</a>
+                                            </div>
+                                        </li>
+                                        <li class="level-2 supplementary nav-products">
+                                            <div class="product-wrapper">
+                                                <a class="supplementary-article"
+                                                   href="https://www.techsmith.com/products.html">
+                                                    <dl>
+                                                        <dt><span
+                                                                class="product-name">All Products &amp; Downloads ›</span>
+
+                                                        </dt>
+                                                        <dd></dd>
+                                                    </dl>
+                                                </a>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="level-1 nav-help">
+                                <a href="https://www.techsmith.com/help.html">Help</a>
+                                <div class="simple-menu-wrapper">
+                                    <ul class="simple-menu">
+                                        <li class="level-2 nav-lost-software-key"><a href="/support/lostkey.asp">Find
+                                            Software Key</a></li>
+                                        <li class="level-2 nav-tutorials"><a
+                                                href="https://www.techsmith.com/tutorial.html">Tutorials</a></li>
+                                        <li class="level-2 nav-tech-support"><a href="https://support.techsmith.com">Support</a>
+                                        </li>
+                                        <li class="level-2 nav-community-support"><a
+                                                href="https://feedback.techsmith.com/techsmith">Community</a></li>
+                                        <li class="level-2 nav-software-registration"><a
+                                                href="https://www.techsmith.com/registration.html">Product
+                                            Registration</a></li>
+                                        <li class="level-2 summary-item"><a href="https://www.techsmith.com/help.html">All
+                                            Help Options</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="level-1 nav-company">
+                                <a href="https://www.techsmith.com/company.html">Company</a>
+                                <div class="simple-menu-wrapper">
+                                    <ul class="simple-menu">
+                                        <li class="level-2 nav-about"><a href="https://www.techsmith.com/about.html">About</a>
+                                        </li>
+                                        <li class="level-2 nav-contact"><a
+                                                href="https://www.techsmith.com/contact.html">Contact</a></li>
+                                        <li class="level-2 nav-careers"><a href="/careers/">Careers</a></li>
+                                        <li class="level-2 nav-partner-programs"><a
+                                                href="https://www.techsmith.com/partner-information.html">Partner
+                                            Programs</a></li>
+                                        <li class="level-2 nav-press-room"><a
+                                                href="https://www.techsmith.com/press.html">Press Room</a></li>
+                                        <li class="level-2 nav-customer-stories"><a
+                                                href="https://www.techsmith.com/customer-stories.html">Customer
+                                            Stories</a></li>
+                                        <li class="level-2 nav-emailpreferences"><a href="/emailpreferences">Email
+                                            Subscription</a></li>
+                                        <li class="level-2 summary-item"><a
+                                                href="https://www.techsmith.com/company.html">All Company
+                                            Information</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="level-1 nav-techsmith-blog">
+                                <a href="https://www.techsmith.com/blog/">Blog</a>
+                                <div class="simple-menu-wrapper">
+                                    <ul class="simple-menu">
+                                        <li class="level-2 nav-techsmith-blog"><a
+                                                href="https://www.techsmith.com/blog/">TechSmith Blog</a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="level-1 nav-store">
+                                <a href="http://shop.techsmith.com/">Store</a>
+                                <div class="simple-menu-wrapper">
+                                    <ul class="simple-menu">
+                                        <li class="level-2 nav-store"><a href="http://shop.techsmith.com/">TechSmith
+                                            Store</a></li>
+                                        <li class="level-2 nav-"><a href="http://shop.techsmith.com/store/techsm/help">Online
+                                            Store FAQ</a></li>
+                                        <li class="level-2 summary-item"><a href="http://shop.techsmith.com/">All Store
+                                            Options</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav><!-- .global-nav -->
+                    <ul class="supplemental-buttons">
+                        <li><a class="global-nav-link contact-us" href="https://www.techsmith.com/contact.html"
+                               title="Contact Us"><i
+                                class="navmenu-icon glyph-nav-phone"></i><span>Contact Us</span></a></li>
+                        <li class="tsc-dropdown-menu-wrapper">
+                            <a href="#" class="global-nav-link tsc-dropdown-menu-trigger">
+                                <i class="navmenu-icon glyph-nav-world"></i><span>U.S. English</span>&nbsp;<i
+                                    class="glyph-chevron-down glyph-small"></i>
+                            </a>
+                            <div class="tsc-dropdown-menu-positioner">
+                                <ul class="tsc-dropdown-menu tsc-language">
+                                    <li><a href="https://www.techsmith.com" class="selected" tabindex="-1">U.S.
+                                        English</a></li>
+                                    <li><a href="https://www.techsmith.de" class="" tabindex="0">Deutsch</a></li>
+                                    <li><a href="https://www.techsmith.fr" class="" tabindex="0">Français</a></li>
+                                    <li><a href="https://www.techsmith.co.jp" class="" tabindex="0">日本語</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="global-nav-link cart-link"
+                               href="https://shop.techsmith.com/store?Action=cart&amp;SiteID=techsm"
+                               id="shopping-cart-link" title="Cart">
+                                <i class="navmenu-icon glyph-nav-cart"></i>
+                                <span class="cart-count">0</span>
+                                <span>Items</span>
+                                <div class="bubble-icon hide">
+                                    <div class="cart-count">0</div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="mobile-nav-item hide">
+                            <a class="global-nav-link account-link"
+                               href="https://myaccount.techsmith.com/MyAccount/Overview">My Account</a>
+                        </li>
+                        <li class="tsc-dropdown-menu-wrapper profile no-auth">
+                            <a href="#" class="btn signin-link global-nav-link tsc-dropdown-menu-trigger">
+                                <div class="identity">
+                                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
+                                         id="profileIconImageUrl" alt="Profile Image" class="img-circle" width="32"
+                                         height="32">
+                                </div>
+                                <div class="sign-in-status" data-sign-out-text="Sign Out" data-sign-in-text="Sign In">
+                                    Sign In
+                                </div>
+                                <i class="glyph-chevron-down glyph-small"></i>
+                            </a>
+                            <div class="tsc-dropdown-menu-positioner">
+                                <div class="tsc-dropdown-menu arrow_drop">
+                                    <div class="identity-top">
+                                        <a href="https://myaccount.techsmith.com/MyAccount/Overview">
+                                            <div class="identity">
+                                                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
+                                                     id="profileImageUrl" alt="Profile Image" class="img-circle"
+                                                     width="72" height="72">
+                                            </div>
+                                            <div class="identity-container">
+                                                <div id="displayName" class="profile-name"></div>
+                                                <div id="displayEmail" class="profile-email"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="identity-bottom">
+                                        <a class="btn btn-tertiary"
+                                           href="https://myaccount.techsmith.com/MyAccount/Overview" id="Account">My
+                                            Account</a>
+                                        <a class="btn btn-tertiary sign-out-link" href="#" id="signout">Sign Out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul><!-- .supplemental-buttons -->
+                </div><!-- .global-nav-wrapper -->
+
+                <form class="search">
+                    <div class="search-input-wrapper">
+                        <label for="main_google_query">Search TechSmith.com</label>
+                        <input type="search" class="search-input" name="q" id="main_google_query"
+                               placeholder="Search TechSmith.com"/>
+                        <button type="submit" class="search-submit"><span>Search TechSmith.com</span></button>
+                    </div>
+                    <button type="button" class="search-cancel"><span>Cancel</span></button>
+                </form>
+            </header><!-- .tsc-header -->
+
+        </div><!-- .tsc-header-wrapper -->
+
+        <div class="content-wrapper">
+
+
+            <div id="wrapper">
+
+                <div class="content">
+
+
+                    <!-- ~~ Center  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                    <div class="content-left">
+
+
+                        <section>
+
+                            <div id="wistia-hero-37884" class="hero hero-solutions replacement-container">
+                                <div id="replacement-content-37884" class="hide" data-video-api="wistia">
+                                    <script src="https://fast.wistia.com/embed/medias/a38vx5vv2k.jsonp" async></script>
+                                    <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+                                    <div class="wistia_responsive_padding"
+                                         style="padding:56.25% 0 0 0;position:relative;">
+                                        <div class="wistia_responsive_wrapper"
+                                             style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                                            <div class="wistia_embed wistia_async_a38vx5vv2k videoFoam=true"
+                                                 style="height:100%;width:100%">&nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img-wrapper img-wrapper-center-middle"
+                                     style="background-image:url('https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/how-to-make-a-training-video-hero8.png');">
+
+                                </div>
+                                <div class="video-star-hero">
+                                    <a class="replacement-video-trigger video-trigger"
+                                       data-video-content="replacement-content-37884" data-size="" href="#"><span
+                                            class="play-button"></span></a>
+                                </div>
+                                <div class="hero-table">
+                                    <div class="bottom-table-text">
+                                        <div class="text-center">
+                                            <span class="play-button"></span>
+                                        </div>
+                                        <div class="headline-wrapper"><h1>How to Make a Training Video</h1></div>
+
+                                        <div class="copy-wrapper"><p>Learn how easy it can be to create an office
+                                            training video with your smartphone. We take you through the process of
+                                            picking a topic, preparing a storyboard and script, staging your scene,
+                                            recording, and then editing in Camtasia.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="navigation-bar-wrapper navigation-bar-camtasia">
+                            <div class="navigation-bar first-primary">
+                                <div class="logo">
+                                    <a href="https://www.techsmith.com/tutorial-camtasia.html">
+                                        <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/logo-camtasia-tutorials.svg"
+                                             class="block-logo" alt="Camtasia Tutorials"/>
+
+                                    </a>
+                                </div>
+                                <div class="headline">
+                                    How to Make a Training Video
+                                    <span class="sub-headline">4:10</span>
+                                </div>
+                                <div class="nav-links">
+                                    <a href="https://www.techsmith.com/tutorial-camtasia.html"
+                                       class="nav-tutorial-btn btn-camtasia-secondary pull-left">More Tutorials</a>
+                                    <a href="http://shop.techsmith.com/store/techsm/pd/productID.289432000?_ga=2.7853106.1252148816.1506341826-1960643189.1479831609"
+                                       class="nav-tutorial-btn btn-camtasia-primary pull-left">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sticky-nav-bar-spacer"></div>
+                        <div class="region two-column primary-grey0" data-id="37269">
+
+
+                            <div class="column-block-wrapper vertical-top zzz">
+                                <div class="column-block celebrity-v2-wrapper centered-style-wrapper">
+
+
+                                    <section class="celebrity-v2 centered-style">
+
+
+                                        <div class="inner-wrapper text-left">
+                                            <div class="headline-wrapper"><h3>Key Takeaways</h3></div>
+
+                                            <div class="copy-wrapper"><p>0:11 - Choose a topic, ideas for your video</p>
+
+                                                <p>0:35 - Create a script and storyboard</p>
+
+                                                <p>1:06 - Gather equipment and materials, set&nbsp;the scene, capture
+                                                    footage</p>
+
+                                                <p>2:03 - Edit&nbsp;footage with Camtasia</p>
+
+                                                <p>3:44 - Produce the video</p></div>
+
+                                            <div class="link-wrapper">
+                                                <ul class="no-bullets">
+                                                </ul>
+                                            </div>
+
+                                            <div class="link-wrapper">
+
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="column-block celebrity-v2-wrapper image-left-wrapper">
+
+
+                                    <section class="celebrity-v2 image-left">
+
+
+                                        <div class="image-wrapper vertical-align-top">
+                                            <object class="" type="image/svg+xml"
+                                                    data="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/resources.svg"
+                                                    width="48" alt="Resources icon">
+                                                <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/resources-circle.png"
+                                                     alt="Resources icon" title=""/>
+                                            </object>
+                                        </div>
+
+
+                                        <div class="inner-wrapper text-left">
+                                            <div class="headline-wrapper"><h3>Resources</h3></div>
+
+                                            <div class="copy-wrapper"><p><a
+                                                    href="https://assets.techsmith.com/Video/ua-tutorials-camtasia-9-3/tutorial-camtasia-how-make-training-vidoe.mp4">Tutorial
+                                                Video (52.3 MB)</a></p></div>
+
+                                            <div class="link-wrapper">
+                                                <ul class="no-bullets">
+                                                </ul>
+                                            </div>
+
+                                            <div class="link-wrapper">
+
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div><!-- .column-block-wrapper -->
+
+
+                        </div><!-- .region -->
+                        <div id="region-switcher" class="tsc-tab camtasia-theme primary-grey3"
+                             data-tabtitles="Getting Started, Reach Higher, Mobile Apps, More Help" data-id="34356">
+                            <section class="region five-column primary-grey3" data-id="34331">
+
+
+                                <div class="section-header ">
+                                    <p class="base1">Start Here</p>
+
+                                    <p>Record, edit, and share a video with this series of essential skills and
+                                        techniques. Or, pick just the one you need to perfect your project.</p>
+
+
+                                </div>
+
+
+                                <div class="column-block-wrapper vertical-top zzz">
+                                    <div class="column-block hotshot-wrapper content-popup-wrapper">
+
+
+                                        <section class="hotshot content-popup  camtasia-theme">
+
+
+                                            <a href="https://www.techsmith.com/tutorial-camtasia-record-edit-share.html"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-rec1x1.png"
+                                                         alt="Camtasia record button" title=""/>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><p><span
+                                                            style="font-size:14px"><strong>Record, Edit, Share</strong></span>
+                                                    </p>
+
+                                                        <p><span style="font-size:12px">VIDEO 1 of 5 - (4:45)</span></p>
+                                                    </div>
+                                                    <div class="copy-wrapper"><p><span style="font-size:14px">Learn to record, edit and share your screen using Camtasia.</span>
+                                                    </p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper centered-style-wrapper">
+
+
+                                        <section class="hotshot content-popup  camtasia-theme">
+
+
+                                            <a href="https://www.techsmith.com/tutorial-camtasia-transitions-annotations-behaviors.html"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-transitions1x1.png"
+                                                         alt="Camtasia UI showing a transitions on the timeline"
+                                                         title=""/>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><p><span
+                                                            style="font-size:14px"><strong>Transitions &amp;&nbsp;Annotations</strong></span>
+                                                    </p>
+
+                                                        <p><span style="font-size:12px">VIDEO 2 of 5 - (6:16)</span></p>
+                                                    </div>
+                                                    <div class="copy-wrapper"><p><span style="font-size:14px">Learn to make eye catching videos using transitions, annotations, and behaviors.</span>
+                                                    </p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper centered-style-wrapper">
+
+
+                                        <section class="hotshot content-popup  camtasia-theme">
+
+
+                                            <a href="https://www.techsmith.com/tutorial-camtasia-animations-effects.html"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-animations1x1.png"
+                                                         alt="Camtasia timeline with an animation on a clip" title=""/>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><p><span
+                                                            style="font-size:14px"><strong>Animations &amp; Effects</strong></span>
+                                                    </p>
+
+                                                        <p><span style="font-size:12px">VIDEO 3 of 5 - (4:29)</span></p>
+                                                    </div>
+                                                    <div class="copy-wrapper"><p><span style="font-size:14px">Learn to add animations and effects that guide and focus viewers' attention.</span>
+                                                    </p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper centered-style-wrapper">
+
+
+                                        <section class="hotshot content-popup  camtasia-theme">
+
+
+                                            <a href="https://www.techsmith.com/tutorial-camtasia-editing-audio.html"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-audio1x1.png"
+                                                         alt="Camtasia timeline showing a track with waveforms"
+                                                         title=""/>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><p><span
+                                                            style="font-size:14px"><strong>Editing Audio</strong></span>
+                                                    </p>
+
+                                                        <p><span style="font-size:12px">VIDEO 4 of 5 - (3:56)</span></p>
+                                                    </div>
+                                                    <div class="copy-wrapper"><p><span style="font-size:14px">Learn simple but effective audio editing techniques.</span>
+                                                    </p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper centered-style-wrapper">
+
+
+                                        <section class="hotshot content-popup  camtasia-theme">
+
+
+                                            <a href="https://www.techsmith.com/tutorial-camtasia-produce-share.html"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-produce1x1.png"
+                                                         alt="Camtasia share button" title=""/>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><p><strong><span
+                                                            style="font-size:14px">Produce &amp; Share</span></strong>
+                                                    </p>
+
+                                                        <p><span style="font-size:12px">VIDEO 5 of 5 - (3:14)</span></p>
+                                                    </div>
+                                                    <div class="copy-wrapper"><p><span style="font-size:14px">Finish your project by producing, archiving, and sharing.</span>
+                                                    </p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                </div><!-- .column-block-wrapper -->
+
+
+                            </section><!-- .region -->
+                            <section class="region four-column primary-grey0" data-id="37422">
+
+
+                                <div class="section-header ">
+                                    <p class="base1">Reach Higher</p>
+
+                                    <p>Take your Camtasia skills to the next level with tutorials that cover advanced
+                                        editing, animations and more!</p>
+
+
+                                </div>
+
+
+                                <div class="column-block-wrapper vertical-top zzz">
+                                    <div class="column-block col-list-wrapper">
+                                        <section class="col-list camtasia9131-theme ">
+                                            <div class="link-list">
+
+
+                                                <div class="headline">Editing</div>
+                                                <div class="links">
+
+
+                                                    <ul class="no-bullets">
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-editing-in-depth-1.html">Editing
+                                                                In-Depth 1</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-editing-in-depth-2.html">Editing&nbsp;In-Depth
+                                                                2</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-behaviors.html">Camtasia
+                                                                Behaviors</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-animations-in-depth.html"><strong>New!</strong>
+                                                                Animations In-Depth</a></li>
+                                                    </ul>
+
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="column-block col-list-wrapper">
+                                        <section class="col-list camtasia9131-theme ">
+                                            <div class="link-list">
+
+
+                                                <div class="headline">More Tools</div>
+                                                <div class="links">
+
+
+                                                    <ul class="no-bullets">
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-device-frames.html"><strong>New!</strong>
+                                                                Device Frames</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-quizzing.html">Quizzing</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-import-powerpoint-slides.html"><strong>New!</strong>
+                                                                Import PowerPoint Slides</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-ppt-addin-toolbar.html">PowerPoint
+                                                                Add-in Toolbar</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-recording-your-ios-device.html">Record
+                                                                Your iOS Device (Mac)</a></li>
+                                                    </ul>
+
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="column-block col-list-wrapper">
+                                        <section class="col-list camtasia9131-theme link-float">
+                                            <div class="link-list">
+
+
+                                                <div class="headline">Creative</div>
+                                                <div class="links">
+
+
+                                                    <ul class="no-bullets">
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-behaviors-animated-scene.html">Create
+                                                                an Animated Scene</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-behaviors-animated-titles.html">Animate
+                                                                Titles with Behaviors</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-behaviors-animated-countdown.html">Create
+                                                                an Animated Countdown</a></li>
+                                                    </ul>
+
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="column-block col-list-wrapper">
+                                        <section class="col-list camtasia9131-theme ">
+                                            <div class="link-list">
+
+
+                                                <div class="headline">Resources</div>
+                                                <div class="links">
+
+
+                                                    <ul class="no-bullets">
+                                                        <li>
+                                                            <a href="https://support.techsmith.com/hc/en-us/articles/115000341632-Camtasia-8-to-9-Where-is-it-now">Camtasia
+                                                                8 to 9 - Where is it now?</a></li>
+                                                        <li>
+                                                            <a href="https://assets.techsmith.com/Docs/pdf-camtasiaStudio/hotkeys-mini-poster-win-v2.pdf">Hotkeys
+                                                                Mini Poster (Windows)</a></li>
+                                                        <li>
+                                                            <a href="https://assets.techsmith.com/Docs/pdf-camtasiaStudio/hotkeys-mini-poster-mac.pdf">Hotkeys
+                                                                Mini Poster (Mac)</a></li>
+                                                        <li><a href="https://library.techsmith.com">Camtasia Video
+                                                            Assets (Free)</a></li>
+                                                    </ul>
+
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="column-block col-list-wrapper">
+                                        <section class="col-list camtasia9131-theme link-float">
+                                            <div class="link-list">
+
+
+                                                <div class="headline">TechComm Tutorials</div>
+                                                <div class="links">
+
+
+                                                    <ul class="no-bullets">
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-how-to-make-a-video-tutorial.html">How
+                                                                to Make a Tutorial Video</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-how-to-create-a-micro-video.html">How
+                                                                to Create a Micro Video</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-three-ways-to-edit-video-for-technical-documentation.html">3
+                                                                Ways to Edit a Video for Technical Documentation</a>
+                                                        </li>
+                                                    </ul>
+
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="column-block col-list-wrapper">
+                                        <section class="col-list camtasia9131-theme link-float">
+                                            <div class="link-list">
+
+
+                                                <div class="headline">Training Tutorials</div>
+                                                <div class="links">
+
+
+                                                    <ul class="no-bullets">
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-how-to-create-training-video.html">How
+                                                                to Make a Training Video</a></li>
+                                                        <li>
+                                                            <a href="https://www.techsmith.com/tutorial-camtasia-spice-up-your-training-videos.html">Spice
+                                                                Up Your Training Videos</a></li>
+                                                    </ul>
+
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div><!-- .column-block-wrapper -->
+
+
+                            </section><!-- .region -->
+                            <section class="region three-column primary-grey3" data-id="37674">
+
+
+                                <div class="section-header ">
+                                    <p class="base1">Mobile Apps</p>
+
+                                    <p>Leverage TechSmith's mobile apps to enhance your Camtasia videos.</p>
+
+
+                                </div>
+
+
+                                <div class="column-block-wrapper vertical-top zzz">
+                                    <div class="column-block hotshot-wrapper -wrapper">
+
+
+                                        <section class="hotshot centered-style ">
+
+
+                                            <a href="https://www.techsmith.com/tutorial-capture.html"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-capture.png"
+                                                         alt="Capture Icon" title=""/>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><h3>TechSmith Capture</h3></div>
+                                                    <div class="copy-wrapper"><p>Record your iOS device and quickly
+                                                        share with Camtasia &amp; Snagit.</p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper -wrapper">
+
+
+                                        <section class="hotshot centered-style ">
+
+
+                                            <a href="https://www.techsmith.com/tutorial-motion.html"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <img src="https://assets.techsmith.com/Images/content/Motion-rounded-60px.png"
+                                                         alt="Motion Icon" title=""/>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><h3>TechSmith Motion</h3></div>
+                                                    <div class="copy-wrapper"><p>Turn basic images into eye-catching
+                                                        videos.</p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper -wrapper">
+
+
+                                        <section class="hotshot centered-style ">
+
+
+                                            <a href="https://www.techsmith.com/tutorial-fuse.html" class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <object class="" type="image/svg+xml"
+                                                            data="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-fuse.svg"
+                                                            width="61" alt="Fuse icon">
+                                                        <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-fuse.png"
+                                                             alt="Fuse icon" title=""/>
+                                                    </object>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><h3>TechSmith Fuse</h3></div>
+                                                    <div class="copy-wrapper"><p>Send image and videos from your device
+                                                        directly to Camtasia or Snagit.</p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                </div><!-- .column-block-wrapper -->
+
+
+                            </section><!-- .region -->
+                            <section class="region four-column primary-grey0" data-id="34324">
+
+
+                                <div class="section-header ">
+                                    <p class="base1">We're Here to Help</p>
+
+                                    <p>If you didn't find the help you were looking for in our Camtasia tutorials, you
+                                        can tweet your question to @TechSmithHelp, or call our free tech support on
+                                        weekdays from 8am to 7pm Eastern Time. If you need help outside of those hours,
+                                        check out our online help articles, or try posting to our user community.</p>
+
+
+                                </div>
+
+
+                                <div class="column-block-wrapper vertical-top zzz">
+                                    <div class="column-block hotshot-wrapper -wrapper">
+
+
+                                        <section class="hotshot centered-style ">
+
+
+                                            <a href="https://support.techsmith.com/hc/en-us" class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <object class="" type="image/svg+xml"
+                                                            data="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-tech-support.svg"
+                                                            width="49" alt="Headphones">
+                                                        <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-tech-support.png"
+                                                             alt="Headphones" title=""/>
+                                                    </object>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><h3>Tech Support</h3></div>
+                                                    <div class="copy-wrapper"><p>Find technical answers online or talk
+                                                        with an expert.</p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper -wrapper">
+
+
+                                        <section class="hotshot centered-style ">
+
+
+                                            <a href="https://www.techsmith.com/enterprise-resources.html"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <object class="" type="image/svg+xml"
+                                                            data="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-enterprise.svg"
+                                                            width="57" alt="Briefcase">
+                                                        <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-enterprise.png"
+                                                             alt="Briefcase" title=""/>
+                                                    </object>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><h3>Enterprise Resources</h3></div>
+                                                    <div class="copy-wrapper"><p>Customize and deploy Camtasia to your
+                                                        organization.</p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper -wrapper">
+
+
+                                        <section class="hotshot centered-style ">
+
+
+                                            <a href="https://support.techsmith.com/hc/en-us/sections/115000074311"
+                                               class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <object class="" type="image/svg+xml"
+                                                            data="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-online-help.svg"
+                                                            width="53" alt="Map">
+                                                        <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-online-help.png"
+                                                             alt="Map" title=""/>
+                                                    </object>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><h3>Online Help</h3></div>
+                                                    <div class="copy-wrapper"><p>View help topics to learn how to use
+                                                        the product.</p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                    <div class="column-block hotshot-wrapper -wrapper">
+
+
+                                        <section class="hotshot centered-style ">
+
+
+                                            <a href="https://feedback.techsmith.com/" class="hotshot-link">
+
+
+                                                <div class="image-wrapper">
+                                                    <object class="" type="image/svg+xml"
+                                                            data="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-community.svg"
+                                                            width="71" alt="People">
+                                                        <img src="https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/icon-community.png"
+                                                             alt="People" title=""/>
+                                                    </object>
+                                                </div>
+
+
+                                                <div class="inner-wrapper">
+
+                                                    <div class="headline-wrapper"><h3>Community</h3></div>
+                                                    <div class="copy-wrapper"><p>Get help from the TechSmith user
+                                                        community.</p></div>
+
+                                                </div>
+                                            </a>
+
+                                        </section>
+                                    </div>
+                                </div><!-- .column-block-wrapper -->
+                            </section><!-- .region -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

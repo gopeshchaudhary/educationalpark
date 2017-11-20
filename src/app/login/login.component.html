@@ -1,0 +1,81 @@
+<div class=" body-cls col-md-8 col-md-offset-2">
+    <div class="pen-title">
+        <h1>Educational Park</h1>
+    </div>
+    <div class="container">
+        <div class="card"></div>
+        <div class="card">
+            <h1 class="title">Login</h1>
+            <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+                <div class="input-container">
+                    <input type="text" id="username" name="username" [(ngModel)]="model.username" #username="ngModel"
+                           required="required"/>
+                    <label for="username">Username</label>
+                    <div class="bar"></div>
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="password" name="password" [(ngModel)]="model.password"
+                           #password="ngModel" required="required"/>
+                    <label for="password">Password</label>
+                    <div class="bar"></div>
+                    <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                </div>
+                <div class="button-container">
+                    <button [disabled]="loading"><span>Login</span></button>
+                    <img *ngIf="loading"
+                         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+                <div class="footer"><a href="#">Forgot your password?</a></div>
+            </form>
+        </div>
+        <div class="card alt">
+            <div class="toggle"></div>
+            <h1 class="title">Register
+                <div class="close"></div>
+            </h1>
+            <form name="form" (ngSubmit)="f.form.valid && register()" #regf="ngForm" novalidate>
+                <div class="input-container" [ngClass]="{ 'has-error': regf.submitted && !userName.valid }">
+                    <input type="text" id="regusername" name="userName" [(ngModel)]="model.userName" #userName="ngModel"
+                           required="required"/>
+                    <label for="regusername">User Name</label>
+                    <div class="bar"></div>
+                    <div *ngIf="regf.submitted && !userName.valid" class="help-block">User Name is required</div>
+                </div>
+                <div class="input-container" [ngClass]="{ 'has-error': regf.submitted && !phoneNo.valid }">
+                    <input type="text" id="regphoneno" name="phoneNo" [(ngModel)]="model.phoneNo" #phoneNo="ngModel"
+                           required="required"/>
+                    <label for="regphoneno">Phone No</label>
+                    <div class="bar"></div>
+                    <div *ngIf="regf.submitted && !phoneNo.valid" class="help-block">Phone No is required</div>
+                </div>
+                <div class="input-container" [ngClass]="{ 'has-error': regf.submitted && !emailID.valid }">
+                    <input type="text" id="emailid" name="emailID" [(ngModel)]="model.emailID" #emailID="ngModel"
+                           required="required"/>
+                    <label for="emailid">Email ID</label>
+                    <div class="bar"></div>
+                    <div *ngIf="regf.submitted && !emailID.valid" class="help-block">Email ID is required</div>
+                </div>
+                <div class="input-container" [ngClass]="{ 'has-error': regf.submitted && !pass.valid }">
+                    <input type="password" id="regpassword" name="password" [(ngModel)]="model.pass" #pass="ngModel"
+                           required="required"/>
+                    <label for="regpassword">Password</label>
+                    <div class="bar"></div>
+                    <div *ngIf="regf.submitted && !pass.valid" class="help-block">Password is required</div>
+                </div>
+                <div class="input-container" [ngClass]="{ 'has-error': regf.submitted && !repass.valid }">
+                    <input type="text" id="reregpassword" name="password" [(ngModel)]="model.repass" #repass="ngModel"
+                           required="required"/>
+                    <label for="reregpassword">Retype Password</label>
+                    <div class="bar"></div>
+                    <div *ngIf="regf.submitted && !repass.valid" class="help-block">Retype Password is required</div>
+                </div>
+                <div class="button-container">
+                    <button [disabled]="loading"><span>Register</span></button>
+                    <img *ngIf="loading"
+                         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
