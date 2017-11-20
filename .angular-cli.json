@@ -19,9 +19,17 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "assets/css/font-awesome.min.css",
+        "assets/css/reset.min.css",
+        "assets/css/fonts.css",
+        "assets/css/tscresponsive.css",
+        "../node_modules/videogular2/fonts/videogular.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "assets/js/embedded-smart-player.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
