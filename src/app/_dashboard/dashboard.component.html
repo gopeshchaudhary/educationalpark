@@ -1,4 +1,17 @@
 <!-- Foundation PageID: 37268 -->
+<ol>
+        <li>
+          <mat-form-field>
+            <input matInput [(ngModel)]="name" placeholder="What's your name?">
+          </mat-form-field>
+        </li>
+        <li>
+          <button mat-raised-button (click)="openDialog()">Pick one</button>
+        </li>
+        <li *ngIf="animal">
+          You chose: <i>{{animal}}</i>
+        </li>
+    </ol>
 <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help"
      data-submenu-nav=".nav-tutorials">
     <div class="revealer">
@@ -378,7 +391,33 @@
                             </div>
                             <div class="sticky-nav-bar-spacer"></div>
                             <vg-player>
-                                <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                                    <vg-overlay-play [vgFor]="singleVideo"></vg-overlay-play>
+                                    <vg-buffering [vgFor]="singleVideo"></vg-buffering>
+
+                                    <vg-scrub-bar>
+                                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                                        </vg-scrub-bar>
+
+                                        <vg-controls>
+                                                <vg-play-pause></vg-play-pause>
+                                                <vg-playback-button></vg-playback-button>
+                                        
+                                                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                                        
+                                              
+                                        
+                                                <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                                                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                                        
+                                                <vg-track-selector></vg-track-selector>
+                                                <vg-mute></vg-mute>
+                                                <vg-volume></vg-volume>
+                                        
+                                                <vg-fullscreen></vg-fullscreen>
+                                            </vg-controls>
+
+                                <video [vgMedia]="media" #media id="singleVideo" preload="auto" >
                                     <source src="https://ia601506.us.archive.org/34/items/2251411254/Dragon_Ball_Super_116_Subbed_DragonBall360.com.MP4" type="video/mp4">
                                 </video>
                             </vg-player>
@@ -435,8 +474,10 @@
                                             techniques. Or, use offline utility for saving directly to portal.</p>
                                     </div>
                                     <li *ngFor="let item of imageUrlObject">
-                                            <img [src]="item.url" width="200" />
-                                            {{item.title}}      
+                                            <button mat-raised-button (click)="openDialog(item)">{{item.title}}</button>
+                                          
+                                          
+                                           
                                     </li>
                                     
                                     <!-- <div class="column-block-wrapper vertical-top zzz">
