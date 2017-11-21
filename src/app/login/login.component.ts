@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     // jquery setup for form
     $('.toggle').on('click', function() {
-      alert('dddd');
       $('.container').stop().addClass('active');
     });
 
@@ -65,4 +64,5 @@ export class LoginComponent implements OnInit {
               this.loading = false;
             });
   }
+
 }
