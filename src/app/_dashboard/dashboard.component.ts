@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService, AuthenticationService, UserService } from '../_services/index';
-declare var $:any;
+declare var $: any;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   model: any = {};
   loading = false;
   returnUrl: string;
+  public imageUrlObject = [];
 
   constructor(
       private route: ActivatedRoute,
@@ -22,6 +23,19 @@ export class DashboardComponent implements OnInit {
       private alertService: AlertService) { }
 
   ngOnInit() {
+    this.imageUrlObject = [{
+      url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-rec1x1.png',
+      title: 'Ankur'
+    },
+    {
+      url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-transitions1x1.png',
+      title: 'Gopesh'
+    },
+    {
+      url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-animations1x1.png',
+      title: 'Madhu'
+    }
+  ];
     // jquery setup for form
     $('.toggle').on('click', function() {
       $('.container').stop().addClass('active');
