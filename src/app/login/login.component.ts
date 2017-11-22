@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     private alertService: AlertService) { }
 
   ngOnInit() {
+
     this.loading = false;
 
     // reset login status
@@ -46,5 +47,5 @@ export class LoginComponent implements OnInit {
         this.loading = false;
       });
   }
-  
 }
+
