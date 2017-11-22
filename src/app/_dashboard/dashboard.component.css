@@ -1,3 +1,20 @@
 ul#menu li {
     display:inline;
 }
+.example-card {
+    width: 31%;
+    float: left;
+    margin: 0 1%;
+    text-align: center;
+  }
+
+  .example-header-image {
+    background-image: url('../../assets/img/logo_3.png');
+    background-size: cover;
+  }
+
+  .mat-card-image {
+    width: 100%;
+    margin: 0;
+    height: 160px;
+}

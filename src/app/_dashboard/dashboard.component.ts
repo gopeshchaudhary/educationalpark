@@ -3,6 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
+
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlertService, AuthenticationService, UserService } from '../_services/index';
 
@@ -33,15 +34,17 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.imageUrlObject = [{
       url: 'http://ppwww.filegstnow.com/GST_TRAINING_GSTR1.mp4',
-      title: 'GST Video'
+      title: 'GST Video',
+      imageSrc: '../../assets/img/gstTraining.png'
     },
     {
       url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-transitions1x1.png',
-      title: 'video 2'
+      title: 'Gst video 2 ',
+      imageSrc: '../../assets/img/gst2Training.png'
     },
     {
       url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-animations1x1.png',
-      title: 'video 3'
+      title: 'Gst Video 3'
     }
   ];
     // jquery setup for form
