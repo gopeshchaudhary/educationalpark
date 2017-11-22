@@ -28,7 +28,7 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { AlertComponent } from './_directives/index';
 
-import { DashboardComponent } from './_dashboard/index';
+
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -45,7 +45,7 @@ import {VgBufferingModule} from 'videogular2/buffering';
 // INJECTIONS
 
 const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule, MatFormFieldModule, MatInputModule, MatDialogModule, VgCoreModule,  VgControlsModule,  VgOverlayPlayModule,  VgBufferingModule ];
-const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent , DialogVideoComponent];
+const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent , DialogVideoComponent, RegisterComponent, FooterComponent, HeaderComponent ];
 const ENTRYCOMPONENTS = [DialogVideoComponent];
 const SINGLETONSERVICES = [ customHttpProvider, AuthGuard, AlertService, AuthenticationService, UserService];
 
