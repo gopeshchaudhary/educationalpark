@@ -12,6 +12,8 @@
           You chose: <i>{{animal}}</i>
         </li>
     </ol> -->
+
+        
 <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help"
      data-submenu-nav=".nav-tutorials">
     <div class="revealer">
@@ -443,12 +445,26 @@
                                         <p>Save, edit, and file a GST with this series of essential skills and
                                             techniques. Or, use offline utility for saving directly to portal.</p>
                                     </div>
-                                    <li *ngFor="let item of imageUrlObject">
-                                            <button mat-raised-button (click)="openDialog(item)">{{item.title}}</button>
-                                          
-                                          
-                                           
-                                    </li>
+                                 
+
+                                            <ul id="menu">
+                                                    
+                                                            <li *ngFor="let item of imageUrlObject">
+                                                                    <button mat-raised-button (click)="openDialog(item)">{{item.title}}</button>
+                                                                  
+                                                                  
+                                                                   
+                                                            </li>
+                
+                                                   
+            
+            
+                                                       
+                                                </ul>
+
+                                  
+                                    
+                                   
                                     
                                     <!-- <div class="column-block-wrapper vertical-top zzz">
                                         <div class="column-block hotshot-wrapper content-popup-wrapper">

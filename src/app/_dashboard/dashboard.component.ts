@@ -36,11 +36,11 @@ export class DashboardComponent implements OnInit {
     },
     {
       url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-transitions1x1.png',
-      title: 'Gopesh'
+      title: 'video 2'
     },
     {
       url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-animations1x1.png',
-      title: 'Madhu'
+      title: 'video 3'
     }
   ];
     // jquery setup for form
@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
 
   openDialog(selectedVideo: any): void {
     const dialogRef = this.dialog.open(DialogVideoComponent, {
-      width: '250px',
+      width: '800px',
       data: selectedVideo
     });
 
