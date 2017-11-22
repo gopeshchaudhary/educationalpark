@@ -1,96 +1,3 @@
-.card{
-    max-width: 400px;
-    padding: 10px;
-    margin: 2px auto;
-    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
-    width: 100%;
-    background: #f7f7f8ba;
-    margin-top: 55px;
-}
-.title{
-    text-align: center;
-    font-weight: 600;
-    color: blue;
-    font-size: 22px;
-    
-    line-height: 2;
-    text-transform: uppercase;
-}
-button, input, optgroup, select, textarea {
-    margin: 0;
-    font: inherit;
-    color: inherit;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.form ul {
-    width: 97%;
-    margin: 10px;
-    margin-top: 10px;
-   list-style: none;
-   -webkit-margin-after: 0;
-   -webkit-border-before: 0;
-   -webkit-padding-start: 10px;
-
-}
-
-.form ul li {
-   display:  inline-block;
-   width: 100%;
-  /* margin-bottom: 1%;  */
-}
-.form ul li label {
-   display: inline-block;
-   width: 35%;
-   float:left;
-   text-align: left;
-   font-size: 14px;
-   font-weight: 600;
-   /* color:white; */
-   margin-top: 8px;
-}   
-
-.form input[type="text"], .form input[type="password"], .form input[type="email"], .form input[type="number"],.form textarea, .form select {
-    clear: none;
-    border: 1px solid #23365ca3;
-    height: 29px;
-    width: 60%;
-    float:left;
-    background: #f0f0f0;
-    font-size: 12px;
-    font-family: inherit;
-    outline: 0;
-    border-radius: 50px;
- 
-}
-.form input[type="text"], .form input[type="password"], .form input[type="email"], .form input[type="number"],.form textarea{
-    padding: 16px 8px;
-}
-
-.submit {
-    background-color: #005886;
-    color: white;
-    padding: 12px 0px;
-    border: none;
-    cursor: pointer;
-    float: left;
-    width: 96%;
-    text-transform: uppercase;
-    border-radius: 25px;
-    text-align: center;
-    margin-top: 16px;
-}
-span.alertInform {
-    color: red;
-    font-size: 12px;
-    margin-left: 35%;
-    }
-a:hover{
-    text-decoration: none;
-}
 .foot{
     text-align: center;
     margin-top: 10px;
@@ -99,13 +6,15 @@ a:hover{
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 600;
-    
 }
-.highlight1{
+.label_left{
     float: left;
     color: #0e3e8a;
 }
-.highlight2{
+.label_right{
     float: right;
     color: #0e3e8a;
+}
+.width420{
+    max-width: 420px;
 }
