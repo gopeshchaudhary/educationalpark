@@ -35,15 +35,16 @@ import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 // INJECTIONS
-const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent,RegisterComponent, FooterComponent, HeaderComponent];
+const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent,RegisterComponent, FooterComponent, HeaderComponent, ForgetPasswordComponent];
 const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule,  VgCoreModule,  VgControlsModule,  VgOverlayPlayModule,  VgBufferingModule ];
 const SINGLETONSERVICES = [ customHttpProvider, AuthGuard, AlertService, AuthenticationService, UserService];
 
 @NgModule({
-  declarations: [ ...COMPONENTS,  ],
+  declarations: [ ...COMPONENTS],
   imports: [ ...MODULES ],
   providers: [ ...SINGLETONSERVICES ],
   bootstrap: [AppComponent]
