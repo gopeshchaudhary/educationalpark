@@ -1,3 +1,35 @@
 ul#menu li {
     display:inline;
 }
+.example-card {
+    /* width: 31%; */
+    float: left;
+    margin: 0 1%;
+    text-align: center;
+  }
+
+  .example-header-image {
+    background-image: url('../../assets/img/logo_3.png');
+    background-size: cover;
+  }
+
+  .mat-card-image {
+    width: 100%;
+    margin: 0;
+    height: 90px;
+}
+
+.mat-card {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.icon_mod{
+    color: white;
+    background: green;
+    border-radius: 50px;
+}
+.region{
+    padding-top: 0rem;
+}
