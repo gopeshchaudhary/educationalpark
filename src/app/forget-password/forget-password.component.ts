@@ -27,10 +27,10 @@ export class ForgetPasswordComponent implements OnInit {
 
   ngOnInit() {
     this.loading = false;
-    this.firstStepPassword = false;
+    this.firstStepPassword = true;
     this.secondStepPassword = false;
     this.thirdStepPassword = false;
-    this.thankumessage = true;
+    this.thankumessage = false;
 
   }
 
