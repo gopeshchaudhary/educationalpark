@@ -31,8 +31,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.imageUrlObject = [{
-      url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-rec1x1.png',
-      title: 'Ankur'
+      url: 'http://ppwww.filegstnow.com/GST_TRAINING_GSTR1.mp4',
+      title: 'GST Video'
     },
     {
       url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-transitions1x1.png',
@@ -58,15 +58,14 @@ export class DashboardComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  openDialog(): void {
+  openDialog(selectedVideo: any): void {
     const dialogRef = this.dialog.open(DialogVideoComponent, {
       width: '250px',
-      data: { name: this.name, animal: this.animal }
+      data: selectedVideo
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
     });
   }
 
