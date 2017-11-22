@@ -23,7 +23,7 @@
 	width: 170px;
     float: left;
     height: 50px;
-    /* padding: 2px; */
+    padding: 5px;
 }
 .component{
 	width: 60%;
@@ -43,12 +43,11 @@
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
-.component a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
+ .component ul li:hover {
+    background: green;
+    border-radius: 12px;
+ }
   

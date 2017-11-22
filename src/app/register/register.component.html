@@ -48,7 +48,7 @@
                     </span>
                 </div>
             </li>
-            <li class="input-container" [ngClass]="{ 'has-error': regf.submitted && !pass.valid }">
+            <!-- <li class="input-container" [ngClass]="{ 'has-error': regf.submitted && !pass.valid }">
                 <label for="regpassword">Password*</label>
                 <input type="password" placeholder="Enter Password" id="regpassword" name="password" [(ngModel)]="model.password" #pass="ngModel"
                     minlength="8" maxlength="15" required="required" />
@@ -70,7 +70,7 @@
                         Confirm Password is required.
                     </span>
                 </div>
-            </li>
+            </li> -->
             <li>
                 <a href="#">
                     <button type="submit" (click)="register()" class="submit">SUBMIT</button>
