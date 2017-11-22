@@ -5,14 +5,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MatButtonModule, MatCheckboxModule, MatMenuModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import 'hammerjs';
 
 // ROUTING
-import { AppRouterModule } from  './app.routing';
+
+import { AppRouterModule } from './app.routing';
 
 // HELPERS
-import  { customHttpProvider } from './_helpers/index';
+
+import { customHttpProvider } from './_helpers/index';
 
 // AUTH GAURD
 import { AuthGuard } from './_guards/index';
@@ -25,10 +27,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { AlertComponent } from './_directives/index';
+
 import { DashboardComponent } from './_dashboard/index';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+
+import { DashboardComponent, DialogVideoComponent } from './_dashboard/index';
 
 // VIDEOANGULAR IMPORTS
 import {VgCoreModule} from 'videogular2/core';
@@ -38,12 +43,15 @@ import {VgBufferingModule} from 'videogular2/buffering';
 
 
 // INJECTIONS
-const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent,RegisterComponent, FooterComponent, HeaderComponent];
-const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule,  VgCoreModule,  VgControlsModule,  VgOverlayPlayModule,  VgBufferingModule ];
+
+const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule, MatFormFieldModule, MatInputModule, MatDialogModule, VgCoreModule,  VgControlsModule,  VgOverlayPlayModule,  VgBufferingModule ];
+const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent , DialogVideoComponent];
+const ENTRYCOMPONENTS = [DialogVideoComponent];
 const SINGLETONSERVICES = [ customHttpProvider, AuthGuard, AlertService, AuthenticationService, UserService];
 
 @NgModule({
-  declarations: [ ...COMPONENTS,  ],
+  declarations: [ ...COMPONENTS ],
+  entryComponents : [ ...ENTRYCOMPONENTS ],
   imports: [ ...MODULES ],
   providers: [ ...SINGLETONSERVICES ],
   bootstrap: [AppComponent]

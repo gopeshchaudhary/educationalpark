@@ -169,6 +169,7 @@
                                 </div>
                             </div>
                             <div class="sticky-nav-bar-spacer"></div>
+                         
                             <div class="region two-column primary-grey0" data-id="37269">
 
 
@@ -227,8 +228,14 @@
                                         <p>Save, edit, and file a GST with this series of essential skills and techniques. Or,
                                             use offline utility for saving directly to portal.</p>
                                     </div>
-
-                                    <div class="column-block-wrapper vertical-top zzz">
+                                    <li *ngFor="let item of imageUrlObject">
+                                            <button mat-raised-button (click)="openDialog(item)">{{item.title}}</button>
+                                          
+                                          
+                                           
+                                    </li>
+                                    
+                                    <!-- <div class="column-block-wrapper vertical-top zzz">
                                         <div class="column-block hotshot-wrapper content-popup-wrapper">
                                             <section class="hotshot content-popup  camtasia-theme">
                                                 <a href="https://www.techsmith.com/tutorial-camtasia-record-edit-share.html" class="hotshot-link">
@@ -418,6 +425,9 @@
                                     <!-- .column-block-wrapper -->
                                 </section>
                                 <!-- .region -->
+                                    </div> -->
+                                    <!-- .column-block-wrapper -->
+                                </section><!-- .region -->
                             </div>
                         </div>
                     </div>
