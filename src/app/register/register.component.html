@@ -1,0 +1,114 @@
+<app-header></app-header>
+<div class="card" *ngIf="registerFlag">
+    <h2 class="title">Register</h2>
+    <form name="form" class="form" (ngSubmit)="regf.form.valid && register()" #regf="ngForm" novalidate>
+        <ul>
+            <li [ngClass]="{ 'has-error': regf.submitted && !userNames.valid }">
+                <label for="regusername">Username*</label>
+                <input type="text" placeholder="Enter Username" #userNames="ngModel" [(ngModel)]="model.username" name="userName" id="regusername"
+                    maxlength="256" pattern="[a-zA-Z0-9]+" required>
+                <div *ngIf="userNames.invalid && (userNames.dirty || userNames.touched)">
+                    <span class="alertInform" *ngIf="userNames.errors.required">
+                        Username is required.
+                    </span>
+                    <span class="alertInform" *ngIf="userNames.errors.pattern">
+                        special characters not allowed.
+                    </span>
+                </div>
+            </li>
+            <li [ngClass]="{ 'has-error': regf.submitted && !phoneNo.valid }">
+                <label for="regphoneno">Mobile Number*</label>
+                <input type="text" placeholder="Enter Mobile Number" maxlength="10" minlength="10" pattern="[0-9]*" id="regphoneno" name="phoneNo"
+                    #phoneNo="ngModel" [(ngModel)]="model.phoneNo" class="form-control" required>
+                <div *ngIf="phoneNo.invalid && (phoneNo.dirty || phoneNo.touched)">
+                    <span class="alertInform" *ngIf="phoneNo.errors.required">
+                        Mobile Number is required.
+                    </span>
+                    <span class="alertInform" *ngIf="phoneNo.errors.pattern">
+                        Mobile numberr should be only numbers.
+                    </span>
+                    <span class="alertInform" iv *ngIf="phoneNo.errors.minlength">
+                        Mobile numberr should be 10digit.
+                    </span>
+                </div>
+            </li>
+            <li [ngClass]="{ 'has-error': regf.submitted && !emailID.valid }">
+                <label for="emailid">Email ID*</label>
+                <input type="text" placeholder="Enter Email" id="emailid" name="emailID" [(ngModel)]="model.emailID" #emailID="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    required class="form-control">
+                <div *ngIf="emailID.invalid && (emailID.dirty || emailID.touched)">
+                    <span class="alertInform" *ngIf="emailID.errors.required">
+                        Email is required.
+                    </span>
+                    <span class="alertInform" *ngIf="emailID.errors.pattern">
+                        Email format should be
+                        <small>
+                            <b>joe@abc.com</b>
+                        </small>
+                    </span>
+                </div>
+            </li>
+            <li class="input-container" [ngClass]="{ 'has-error': regf.submitted && !pass.valid }">
+                <label for="regpassword">Password*</label>
+                <input type="password" placeholder="Enter Password" id="regpassword" name="password" [(ngModel)]="model.password" #pass="ngModel"
+                    minlength="8" maxlength="15" required="required" />
+                <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                    <span class="alertInform" *ngIf="pass.errors.required">
+                        Password is required.
+                    </span>
+                    <span class="alertInform" *ngIf="pass.errors.minlength">
+                        Password should be minimum of 8 characters.
+                    </span>
+                </div>
+            </li>
+            <li class="input-container" [ngClass]="{ 'has-error': regf.submitted && !repass.valid }">
+                <label for="reregpassword">Confirm Password*</label>
+                <input type="password" placeholder="Confirm Password" id="reregpassword" name="repassword" [(ngModel)]="model.repass" #repass="ngModel"
+                    required="required" />
+                <div *ngIf="repass.invalid && (repass.dirty || repass.touched)">
+                    <span class="alertInform" *ngIf="repass.errors.required">
+                        Confirm Password is required.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <button type="submit" (click)="register()" class="submit">SUBMIT</button>
+                </a>
+            </li>
+        </ul>
+    </form>
+    <h3 class="foot">Already had an account
+        <a class="highlight" routerLink="/login">Login here</a>
+    </h3>
+</div>
+<!--OTP Screen-->
+<div class="card clearfix" *ngIf="mobileOtpVerify">
+    <h3 class="title">Enter OTP sent to your Mobile Number</h3>
+    <form class="form">
+        <ul>
+            <li>
+                <label>OTP</label>
+                <input type="text" name='userotp' class="table-input" #otps="ngModel" [(ngModel)]="otp" required>
+                <div *ngIf="otps.invalid && (otps.dirty ||otps.touched)">
+                    <span class="alertInform" *ngIf=otps.errors.required>
+                        OTP is required
+                    </span>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <button (click)="mobileotpVerifyFunc()" class="submit">submit</button>
+                </a>
+            </li>
+        </ul>
+    </form>
+</div>
+
+<!-- Thanku mobile -->
+<div class="card width" *ngIf="thankumessages">
+    <h3 class="title">Thank You</h3>
+    <p class="">Your Mobile Number is Verified.<br>
+    <a class="" routerLink="/login" routerLinkActive="active">Click Here to Login</a></p>
+</div>
+<app-footer></app-footer>

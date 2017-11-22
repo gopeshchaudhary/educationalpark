@@ -1,5 +1,6 @@
 
 import { Component, OnInit, Inject } from '@angular/core';
+
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -51,11 +52,6 @@ export class DashboardComponent implements OnInit {
     $('.close').on('click', function() {
       $('.container').stop().removeClass('active');
     });
-    // reset login status
-    this.authenticationService.logout();
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   openDialog(selectedVideo: any): void {
@@ -75,20 +71,6 @@ export class DashboardComponent implements OnInit {
         .subscribe(
             data => {
               this.router.navigate([this.returnUrl]);
-            },
-            error => {
-              this.alertService.error(error);
-              this.loading = false;
-            });
-  }
-
-  register() {
-    this.loading = true;
-    this.userService.create(this.model)
-        .subscribe(
-            data => {
-              this.alertService.success('Registration successful', true);
-              this.router.navigate(['/login']);
             },
             error => {
               this.alertService.error(error);
