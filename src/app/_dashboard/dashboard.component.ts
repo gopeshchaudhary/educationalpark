@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -22,14 +21,6 @@ export class DashboardComponent implements OnInit {
       private alertService: AlertService) { }
 
   ngOnInit() {
-    // jquery setup for form
-    $('.toggle').on('click', function() {
-      $('.container').stop().addClass('active');
-    });
-
-    $('.close').on('click', function() {
-      $('.container').stop().removeClass('active');
-    });
     // reset login status
     this.authenticationService.logout();
 
@@ -37,30 +28,7 @@ export class DashboardComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  login() {
-    this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
-        .subscribe(
-            data => {
-              this.router.navigate([this.returnUrl]);
-            },
-            error => {
-              this.alertService.error(error);
-              this.loading = false;
-            });
-  }
+  
 
-  register() {
-    this.loading = true;
-    this.userService.create(this.model)
-        .subscribe(
-            data => {
-              this.alertService.success('Registration successful', true);
-              this.router.navigate(['/login']);
-            },
-            error => {
-              this.alertService.error(error);
-              this.loading = false;
-            });
-  }
+ 
 }

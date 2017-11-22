@@ -1,9 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { FooterComponent } from './../footer/index';
+import { HeaderComponent } from './../header/index';
 import { AlertService, AuthenticationService, UserService } from '../_services/index';
-declare var $:any;
+
+declare var $: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,26 +13,19 @@ declare var $:any;
 })
 export class LoginComponent implements OnInit {
   model: any = {};
-  loading = false;
   returnUrl: string;
+  loading: boolean;
 
   constructor(
-      private route: ActivatedRoute,
-      private router: Router,
-      private authenticationService: AuthenticationService,
-      private userService: UserService,
-      private alertService: AlertService) { }
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private userService: UserService,
+    private alertService: AlertService) { }
 
   ngOnInit() {
-    // jquery setup for form
-    $('.toggle').on('click', function() {
-      alert('dddd');
-      $('.container').stop().addClass('active');
-    });
+    this.loading = false;
 
-    $('.close').on('click', function() {
-      $('.container').stop().removeClass('active');
-    });
     // reset login status
     this.authenticationService.logout();
 
@@ -40,29 +35,16 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loading = true;
-    console.log(this.returnUrl);
     this.authenticationService.login(this.model.username, this.model.password)
-        .subscribe(
-            data => {
-              this.router.navigate([this.returnUrl]);
-            },
-            error => {
-              this.alertService.error(error);
-              this.loading = false;
-            });
+      .subscribe(
+      data => {
+        this.alertService.success("Login Successfully");
+        this.router.navigate([this.returnUrl]);
+      },
+      error => {
+        this.alertService.error(error);
+        this.loading = false;
+      });
   }
-
-  register() {
-    this.loading = true;
-    this.userService.create(this.model)
-        .subscribe(
-            data => {
-              this.alertService.success('Registration successful', true);
-              this.router.navigate(['/login']);
-            },
-            error => {
-              this.alertService.error(error);
-              this.loading = false;
-            });
-  }
+  
 }

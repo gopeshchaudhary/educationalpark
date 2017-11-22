@@ -9,44 +9,41 @@ import { MatButtonModule, MatCheckboxModule, MatMenuModule } from '@angular/mate
 import 'hammerjs';
 
 // ROUTING
-
 import { AppRouterModule } from  './app.routing';
 
 // HELPERS
-
 import  { customHttpProvider } from './_helpers/index';
 
 // AUTH GAURD
-
 import { AuthGuard } from './_guards/index';
 
 // SERVICES USED
-
 import { AlertService, AuthenticationService, UserService } from './_services/index';
 
 // COMPONENTS USED
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { AlertComponent } from './_directives/index';
 import { DashboardComponent } from './_dashboard/index';
+import { RegisterComponent } from './register/register.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 // VIDEOANGULAR IMPORTS
-
 import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 
-// INJECTIONS
 
+// INJECTIONS
+const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent,RegisterComponent, FooterComponent, HeaderComponent];
 const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule,  VgCoreModule,  VgControlsModule,  VgOverlayPlayModule,  VgBufferingModule ];
-const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent];
 const SINGLETONSERVICES = [ customHttpProvider, AuthGuard, AlertService, AuthenticationService, UserService];
 
 @NgModule({
-  declarations: [ ...COMPONENTS ],
+  declarations: [ ...COMPONENTS,  ],
   imports: [ ...MODULES ],
   providers: [ ...SINGLETONSERVICES ],
   bootstrap: [AppComponent]

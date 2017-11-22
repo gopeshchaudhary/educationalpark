@@ -1,19 +1,21 @@
 .card{
-    max-width: 400px;
-    padding: 10px;
+    max-width: 590px;
+    padding: 20px;
     margin: 2px auto;
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
     width: 100%;
     background: #f7f7f8ba;
     margin-top: 55px;
 }
+.width{
+    max-width: 350px;
+}
 .title{
     text-align: center;
     font-weight: 600;
     color: blue;
     font-size: 22px;
-    
-    line-height: 2;
+    line-height: 1.5;
     text-transform: uppercase;
 }
 button, input, optgroup, select, textarea {
@@ -79,7 +81,7 @@ button, input, optgroup, select, textarea {
     float: left;
     width: 96%;
     text-transform: uppercase;
-    border-radius: 25px;
+    border-radius: 50px;
     text-align: center;
     margin-top: 16px;
 }
@@ -94,18 +96,21 @@ a:hover{
 .foot{
     text-align: center;
     margin-top: 10px;
-    padding: 0px 21px;
-    padding-bottom: 11px;
-    text-transform: uppercase;
-    font-size: 12px;
+}
+.highlight{
+    color: blue;
     font-weight: 600;
-    
 }
-.highlight1{
-    float: left;
-    color: #0e3e8a;
+p{
+    line-height: 1.5;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
 }
-.highlight2{
-    float: right;
-    color: #0e3e8a;
+
+input[type=text]:hover, select:focus, select:hover, textarea:focus, textarea:hover {
+    border-color: #0072ce;
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    outline: 0;
 }
