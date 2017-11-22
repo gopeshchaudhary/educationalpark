@@ -1,4 +1,17 @@
 <!-- Foundation PageID: 37268 -->
+<!-- <ol>
+        <li>
+          <mat-form-field>
+            <input matInput [(ngModel)]="name" placeholder="What's your name?">
+          </mat-form-field>
+        </li>
+        <li>
+          <button mat-raised-button (click)="openDialog()">Pick one</button>
+        </li>
+        <li *ngIf="animal">
+          You chose: <i>{{animal}}</i>
+        </li>
+    </ol> -->
 <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help"
      data-submenu-nav=".nav-tutorials">
     <div class="revealer">
@@ -377,11 +390,15 @@
                                 </div>
                             </div>
                             <div class="sticky-nav-bar-spacer"></div>
+<<<<<<< HEAD
                             <vg-player>
                                 <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
                                     <source src="http://ppwww.filegstnow.com/GST_TRAINING_GSTR1.mp4" type="video/mp4">
                                 </video>
                             </vg-player>
+=======
+                         
+>>>>>>> 349373942ab1493c4074f3f0b69abe068a51cfca
                             <div class="region two-column primary-grey0" data-id="37269">
 
 
@@ -434,8 +451,14 @@
                                         <p>Save, edit, and file a GST with this series of essential skills and
                                             techniques. Or, use offline utility for saving directly to portal.</p>
                                     </div>
-
-                                    <div class="column-block-wrapper vertical-top zzz">
+                                    <li *ngFor="let item of imageUrlObject">
+                                            <button mat-raised-button (click)="openDialog(item)">{{item.title}}</button>
+                                          
+                                          
+                                           
+                                    </li>
+                                    
+                                    <!-- <div class="column-block-wrapper vertical-top zzz">
                                         <div class="column-block hotshot-wrapper content-popup-wrapper">
                                             <section class="hotshot content-popup  camtasia-theme">
                                                 <a href="https://www.techsmith.com/tutorial-camtasia-record-edit-share.html" class="hotshot-link">
@@ -591,7 +614,8 @@
 
                                             </section>
                                         </div>
-                                    </div><!-- .column-block-wrapper -->
+                                    </div> -->
+                                    <!-- .column-block-wrapper -->
                                 </section><!-- .region -->
                             </div>
                         </div>
