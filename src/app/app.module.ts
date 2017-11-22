@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import 'hammerjs';
 
@@ -45,7 +46,7 @@ import {VgBufferingModule} from 'videogular2/buffering';
 
 // INJECTIONS
 
-const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule, MatFormFieldModule, MatInputModule, MatDialogModule, VgCoreModule,  VgControlsModule,  VgOverlayPlayModule,  VgBufferingModule, MatCardModule ];
+const MODULES = [ BrowserModule, FormsModule, AppRouterModule, HttpModule, BrowserAnimationsModule , MatButtonModule, MatCheckboxModule, MatMenuModule, MatFormFieldModule, MatInputModule, MatDialogModule, VgCoreModule,  VgControlsModule,  VgOverlayPlayModule,  VgBufferingModule, MatCardModule, MatIconModule ];
 const COMPONENTS = [AppComponent, AlertComponent, HomeComponent, LoginComponent, DashboardComponent , DialogVideoComponent, RegisterComponent, FooterComponent, HeaderComponent ];
 const ENTRYCOMPONENTS = [DialogVideoComponent];
 const SINGLETONSERVICES = [ customHttpProvider, AuthGuard, AlertService, AuthenticationService, UserService];

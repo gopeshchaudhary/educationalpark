@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   returnUrl: string;
   animal: string;
   name: string;
+  public showFlag: boolean;
 
   public imageUrlObject = [];
 
@@ -35,16 +36,20 @@ export class DashboardComponent implements OnInit {
     this.imageUrlObject = [{
       url: 'http://ppwww.filegstnow.com/GST_TRAINING_GSTR1.mp4',
       title: 'GST Video',
+      showFlag: false,
       imageSrc: '../../assets/img/gstTraining.png'
     },
     {
       url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-transitions1x1.png',
       title: 'Gst video 2 ',
+      showFlag: false,
       imageSrc: '../../assets/img/gst2Training.png'
     },
     {
       url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-animations1x1.png',
-      title: 'Gst Video 3'
+      title: 'Gst Video 3',
+      showFlag: false,
+      imageSrc: '../../assets/img/gst2Training.png'
     }
   ];
     // jquery setup for form
@@ -58,6 +63,7 @@ export class DashboardComponent implements OnInit {
   }
 
   openDialog(selectedVideo: any): void {
+    selectedVideo.showFlag = true;
     const dialogRef = this.dialog.open(DialogVideoComponent, {
       width: '800px',
       data: selectedVideo

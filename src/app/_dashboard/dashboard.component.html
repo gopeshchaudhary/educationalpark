@@ -118,7 +118,6 @@
 
                 </div>
                 <!-- .tsc-header-wrapper -->
-
                 <div class="content-wrapper">
                     <div id="wrapper">
                         <div class="content">
@@ -165,63 +164,29 @@
 
                                 <div class="navigation-bar-wrapper navigation-bar-camtasia">
                                     <div class="navigation-bar first-primary">
-                                        <div class="logo">
-                                            <a href="https://www.techsmith.com/tutorial-camtasia.html">
-                                                <img src="/../../assets/img/logo_3.png" class="block-logo"
-                                                     alt="Educational Tutorials"/>
-
-                                            </a>
-                                        </div>
+                                        <ul id="menu">
+                                            <li *ngFor="let item of imageUrlObject">
+                                                <mat-card  class="example-card" (click)="openDialog(item)">
+                                                    <mat-card-header>
+                                                        <div mat-card-avatar class="example-header-image">
+                                                        </div>                                              
+                                                        <mat-card-title>Gst Videos</mat-card-title>                                            
+                                                        <mat-card-subtitle>Training</mat-card-subtitle>
+                                                    </mat-card-header> 
+                                                    <img mat-card-image src="{{item.imageSrc}}" >
+                                                    <div *ngIf="item.showFlag" >
+                                                        <mat-card-content> 
+                                                            <mat-icon class="icon_mod">done</mat-icon>
+                                                        </mat-card-content>
+                                                    </div>                                          
+                                                </mat-card>
+                                            </li>              
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="sticky-nav-bar-spacer"></div>
                                 <div class="region two-column primary-grey0" data-id="37269">
 
-
-                                    <div class="column-block-wrapper vertical-top zzz">
-                                        <div class="column-block celebrity-v2-wrapper centered-style-wrapper">
-
-
-                                            <section class="celebrity-v2 centered-style">
-
-
-                                                <div class="inner-wrapper text-left">
-                                                    <div class="headline-wrapper">
-                                                        <h3>Key Takeaways</h3>
-                                                    </div>
-
-                                                    <div class="copy-wrapper">
-                                                        <p>0:11 - Introduction, what is GST.</p>
-
-                                                        <p>0:35 - What is GSP.</p>
-
-                                                        <p>1:06 - How to register on Filegstnow.</p>
-
-                                                        <p>2:03 - How to login on Filegstnow.</p>
-
-                                                        <p>3:44 - How to do live search.</p>
-                                                    </div>
-
-                                                    <div class="link-wrapper">
-                                                        <ul class="no-bullets">
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="link-wrapper">
-
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
-                                        <div class="column-block celebrity-v2-wrapper image-left-wrapper">
-                                        </div>
-
-                                    </div>
-                                    <!-- .column-block-wrapper -->
-
-
-                                </div>
-                                <!-- .region -->
                                 <div id="region-switcher" class="tsc-tab camtasia-theme primary-grey3" data-tabtitles="Getting Started, Reach Higher, Mobile Apps, More Help"
                                     data-id="34356">
                                     <section class="region five-column primary-grey3" data-id="34331">
@@ -236,26 +201,9 @@
                                     </section>
                                     <!-- .region -->
                                 </div>
-                                -->
+                              
                                 <!-- .column-block-wrapper -->
-                                <ul id="menu">
-
-                                    <li *ngFor="let item of imageUrlObject">
-
-                                        <mat-card flex=33 class="example-card" (click)="openDialog(item)">
-                                            <mat-card-header>
-                                                <div mat-card-avatar class="example-header-image"></div>
-                                                <mat-card-title>Gst Videos</mat-card-title>
-                                                <mat-card-subtitle>Training</mat-card-subtitle>
-                                            </mat-card-header> 
-                                           
-                                              <img mat-card-image src="{{item.imageSrc}}"   > 
-                                            
-                                            </mat-card>
-
-                                    </li>
-
-                                </ul>
+                                
                             </div>
                         </div>
                     </div>
