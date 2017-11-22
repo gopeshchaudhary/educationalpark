@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [header]="headertype"></app-header>
 <div class="card width420">
     <h1 class="title">Login</h1>
     <form class="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>

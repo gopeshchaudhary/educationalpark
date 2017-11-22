@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   loading:boolean;
   registerFlag:boolean;
   thankumessages:boolean;
+  headertype = "public";
 
   constructor(
     private route: ActivatedRoute,

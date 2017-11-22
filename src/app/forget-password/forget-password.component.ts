@@ -16,6 +16,7 @@ export class ForgetPasswordComponent implements OnInit {
   secondStepPassword : boolean;
   thirdStepPassword : boolean;
   thankumessage : boolean;
+  headertype = "public";
 
   constructor(
     private route: ActivatedRoute,

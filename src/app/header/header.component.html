@@ -1,4 +1,4 @@
-<div class="header clearfix">
+<div *ngIf="public; else privateheader" class="header clearfix">
   <div class="head-wrapper clearfix">
     <div class="logo">
       <a class="" href="#page-top">
@@ -6,27 +6,133 @@
       </a>
     </div>
     <div class="component">
-        <ul class="">
-          <li class="">
-            <a class="" href="#courses">Course</a>
-          </li>
-          <li class="">
-            <a class="" href="#codplay">Code Playground</a>
-          </li>
-          <li class="">
-            <a class="" href="#discuss">Discuss</a>
-          </li>
-          <li class="">
-            <a class="" href="#blog">Blog</a>
-          </li>
-          <li class="">
-            <a class="" routerLink="/login" routerLinkActive="active">Login</a>
-          </li>
-          <li class="">
-            <a class="" routerLink="/register" routerLinkActive="active">Enroll Here</a>
-          </li>
-        </ul>
-      </div>
+      <ul class="">
+        <li class="">
+          <a class="" href="#courses">Course</a>
+        </li>
+        <li class="">
+          <a class="" href="#codplay">Code Playground</a>
+        </li>
+        <li class="">
+          <a class="" href="#discuss">Discuss</a>
+        </li>
+        <li class="">
+          <a class="" href="#blog">Blog</a>
+        </li>
+        <li class="">
+          <a class="" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li class="">
+          <a class="" routerLink="/register" routerLinkActive="active">Enroll Here</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
+<ng-template #privateheader>
+  <div class="header clearfix">
+    <div class="head-wrapper clearfix">
+      <header class="tsc-header no-bullets">
+        <div class="logo">
+          <a class="" href="#page-top">
+            <img class="logo-img" src="/../../assets/img/logo.png" alt="Logo">
+          </a>
+        </div>
+        <div class="global-nav-wrapper">
+            <div class="mobile-logo-wrapper">
+                <a class="mobile-logo" href="/">
+                    <object class="svg-logo" type="image/svg+xml"
+                            data="https://assets.techsmith.com/Images/interface/logo.svg" tabindex="-1">
+                        <img src="/../../assets/img/logo_3.png" alt="TechSmith &amp;reg;">
+                    </object>
+                </a>
+            </div>
+            <ul class="supplemental-buttons">
+                <li>
+                    <a class="global-nav-link contact-us" href="https://www.techsmith.com/contact.html" title="Contact Us">
+                        <i class="navmenu-icon glyph-nav-phone"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+                <li class="tsc-dropdown-menu-wrapper">
+                    <a href="#" class="global-nav-link tsc-dropdown-menu-trigger">
+                        <i class="navmenu-icon glyph-nav-world"></i>
+                        <span>U.S. English</span>&nbsp;
+                        <i class="glyph-chevron-down glyph-small"></i>
+                    </a>
+                    <div class="tsc-dropdown-menu-positioner">
+                        <ul class="tsc-dropdown-menu tsc-language">
+                            <li>
+                                <a href="https://www.techsmith.com" class="selected" tabindex="-1">U.S.
+                                    English
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.techsmith.de" class="" tabindex="0">Deutsch</a>
+                            </li>
+                            <li>
+                                <a href="https://www.techsmith.fr" class="" tabindex="0">Français</a>
+                            </li>
+                            <li>
+                                <a href="https://www.techsmith.co.jp" class="" tabindex="0">日本語</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="mobile-nav-item hide">
+                    <a class="global-nav-link account-link" href="https://myaccount.techsmith.com/MyAccount/Overview">My Account</a>
+                </li>
+                <li class="tsc-dropdown-menu-wrapper profile no-auth">
+                    <a [routerLink]="['/login']" class="btn signin-link global-nav-link tsc-dropdown-menu-trigger">
+                        <div class="identity">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" id="profileIconImageUrl" alt="Profile Image" class="img-circle"
+                                width="32" height="32">
+                        </div>
+                        <div class="sign-in-status" data-sign-out-text="Sign Out" data-sign-in-text="Sign Out">
+                            Sign Out
+                        </div>
+                        <i class="glyph-chevron-down glyph-small"></i>
+                    </a>
+                    <div class="tsc-dropdown-menu-positioner">
+                        <div class="tsc-dropdown-menu arrow_drop">
+                            <div class="identity-top">
+                                <a href="https://myaccount.techsmith.com/MyAccount/Overview">
+                                    <div class="identity">
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" id="profileImageUrl" alt="Profile Image" class="img-circle"
+                                            width="72" height="72">
+                                    </div>
+                                    <div class="identity-container">
+                                        <div id="displayName" class="profile-name"></div>
+                                        <div id="displayEmail" class="profile-email"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="identity-bottom">
+                                <a class="btn btn-tertiary" href="https://myaccount.techsmith.com/MyAccount/Overview" id="Account">My Account
+                                </a>
+                                <a class="btn btn-tertiary sign-out-link" id="signout">Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- .supplemental-buttons -->
+        </div>
+        <form class="search">
+          <div class="search-input-wrapper">
+            <label for="main_google_query">Search EduPark.com</label>
+            <input type="search" class="search-input" name="q" id="main_google_query" placeholder="Search Edupark.com" />
+            <button type="submit" class="search-submit">
+              <span>Search Educational Portal</span>
+            </button>
+          </div>
+          <button type="button" class="search-cancel">
+            <span>Cancel</span>
+          </button>
+        </form>
+      </header>
+    </div>
+  </div>
+</ng-template>
