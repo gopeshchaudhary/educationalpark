@@ -27,7 +27,7 @@
                     <span class="alertInform" *ngIf="phoneNo.errors.pattern">
                         Mobile numberr should be only numbers.
                     </span>
-                    <span class="alertInform" iv *ngIf="phoneNo.errors.minlength">
+                    <span class="alertInform"  *ngIf="phoneNo.errors.minlength">
                         Mobile numberr should be 10digit.
                     </span>
                 </div>
@@ -63,7 +63,7 @@
             </li>
             <li class="input-container" [ngClass]="{ 'has-error': regf.submitted && !repass.valid }">
                 <label for="reregpassword">Confirm Password*</label>
-                <input type="password" placeholder="Confirm Password" id="reregpassword" name="repassword" [(ngModel)]="model.repass" #repass="ngModel"
+                <input type="password" placeholder="Confirm Password"  id="reregpassword" name="repassword" [(ngModel)]="model.repass" #repass="ngModel"
                     required="required" />
                 <div *ngIf="repass.invalid && (repass.dirty || repass.touched)">
                     <span class="alertInform" *ngIf="repass.errors.required">

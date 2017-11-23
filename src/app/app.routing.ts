@@ -7,7 +7,7 @@ import { RegisterComponent } from './register/index';
 
 
 const appRoutes: Routes = [
-    { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: '', component: DashboardComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
     // { path: 'dashboard', component: DashboardComponent },

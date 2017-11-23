@@ -21,8 +21,10 @@ export class DashboardComponent implements OnInit {
   animal: string;
   name: string;
   public showFlag: boolean;
+  public allFlag:boolean;
 
   public imageUrlObject = [];
+  private count=0;
 
   constructor(
       private route: ActivatedRoute,
@@ -64,6 +66,8 @@ export class DashboardComponent implements OnInit {
 
   openDialog(selectedVideo: any): void {
     selectedVideo.showFlag = true;
+    this.count++;
+    this.allFlag = (this.count===this.imageUrlObject.length)?true:false;
     const dialogRef = this.dialog.open(DialogVideoComponent, {
       width: '800px',
       data: selectedVideo
