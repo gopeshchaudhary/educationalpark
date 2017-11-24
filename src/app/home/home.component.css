@@ -51,8 +51,25 @@
     /* height: 100px; */
     margin: 2% 10%;
 }
+.full_width{
+    width:100%;
+    padding:1px;
+}
 .icon{
     background: maroon;
-    width: 40%;
-    float:left;
+    width: 30%;
+    float: left;
+    padding: 20px;
+}
+.icon img{
+    width: 40px;
+}
+.box_content{
+    width: 70%;
+    float: left;
+    padding: 15px;
+}
+
+.info{
+    width:250px;
 }
