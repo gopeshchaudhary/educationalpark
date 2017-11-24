@@ -1,6 +1,20 @@
 <app-header [header]="headertype"></app-header>
 <div id="form_container" class="card">
   <h1 class="title">Questionnaire</h1>
- 
+<li *ngFor="let item of examData let selecteIndex = index">
+<span>
+  {{item.ques}}
+  <span  >  
+    <mat-radio-group [(ngModel)]="radioSelected[selecteIndex]" >
+      <mat-radio-button *ngFor="let items of item.options let i = index" [value]="items"> {{items}}</mat-radio-button>
+     
+    </mat-radio-group>
+   </span>
+  
+</span>
+
+</li>
+<button mat-raised-button (click)="submitExam(radioSelected)" color="primary">Submit Exam </button>
+
 
 </div>
