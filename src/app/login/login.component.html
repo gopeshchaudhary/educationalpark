@@ -1,5 +1,5 @@
-<app-header></app-header>
-<div class="card">
+<app-header [header]="headertype"></app-header>
+<div class="card width420">
     <h1 class="title">Login</h1>
     <form class="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
         <ul>
@@ -31,8 +31,8 @@
         </ul>
     </form>
     <h3 class="foot">
-            <a class="highlight1">Forgot password?</a>
-            <a class="highlight2" routerLink="/register" routerLinkActive="active">Register Here</a>
+            <a class="label_left" routerLink="/forgetPass" >Forgot password?</a>
+            <a class="label_right" routerLink="/register" routerLinkActive="active">Register Here</a>
         </h3>
 </div>
 <app-footer></app-footer>
