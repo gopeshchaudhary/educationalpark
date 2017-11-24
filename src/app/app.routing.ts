@@ -13,6 +13,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'forgetPass', component: ForgetPasswordComponent },
     { path: 'exam', component: ExaminationComponent },
+    { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
