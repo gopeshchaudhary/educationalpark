@@ -1,4 +1,6 @@
-<app-header [header]="headertype"></app-header>
+<div class="header_color">
+    <app-header [header]="headertype"></app-header>
+</div>
 <div class="card" *ngIf="registerFlag">
     <h2 class="title">Register</h2>
     <form name="form" class="form" (ngSubmit)="regf.form.valid && register()" #regf="ngForm" novalidate>
@@ -108,7 +110,9 @@
 <!-- Thanku mobile -->
 <div class="card width350" *ngIf="thankumessages">
     <h3 class="title">Thank You</h3>
-    <p class="para">Your Mobile Number is Verified.<br>
-    <a class="" routerLink="/login" routerLinkActive="active">Click Here to Login</a></p>
+    <p class="para">Your Mobile Number is Verified.
+        <br>
+        <a class="" routerLink="/login" routerLinkActive="active">Click Here to Login</a>
+    </p>
 </div>
 <app-footer></app-footer>
