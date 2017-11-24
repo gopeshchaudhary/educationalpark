@@ -8,7 +8,7 @@ import { ForgetPasswordComponent } from './forget-password/index';
 import { ExaminationComponent } from './examination/index';
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent, pathMatch: 'full'},
+    { path: '', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
     { path: 'forgetPass', component: ForgetPasswordComponent },
