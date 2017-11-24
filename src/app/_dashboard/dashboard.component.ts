@@ -21,10 +21,10 @@ export class DashboardComponent implements OnInit {
   animal: string;
   name: string;
   public showFlag: boolean;
-  public allFlag:boolean;
-
+  public allFlag: boolean;
+  headertype: 'private';
   public imageUrlObject = [];
-  private count=0;
+  private count= 0;
 
   constructor(
       private route: ActivatedRoute,
@@ -55,13 +55,13 @@ export class DashboardComponent implements OnInit {
     }
   ];
     // jquery setup for form
-    $('.toggle').on('click', function() {
-      $('.container').stop().addClass('active');
-    });
+    // $('.toggle').on('click', function() {
+    //   $('.container').stop().addClass('active');
+    // });
 
-    $('.close').on('click', function() {
-      $('.container').stop().removeClass('active');
-    });
+    // $('.close').on('click', function() {
+    //   $('.container').stop().removeClass('active');
+    // });
   }
 
   openDialog(selectedVideo: any): void {
