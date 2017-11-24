@@ -42,21 +42,22 @@
 	width: 100%;
 }
 .footbox{
-    background: gray;
+    background: #bbbbbb;
     width:100%;
 }
 .box{
-    background: white;
-    width: 250px;
-    /* height: 100px; */
-    margin: 2% 10%;
+    width: 20%;
+    margin: 2% 6%;
+    float: left;
+    color: #635d5d;
 }
 .full_width{
     width:100%;
     padding:1px;
+    background: white;
 }
 .icon{
-    background: maroon;
+    background: #a91414;
     width: 30%;
     float: left;
     padding: 20px;
@@ -69,7 +70,17 @@
     float: left;
     padding: 15px;
 }
-
-.info{
-    width:250px;
+.box ul{
+    padding: 20px;
+}
+.box ul li{
+    padding-top: 8px;
+    
+}
+.top_padding{
+    padding-top: 80px;
+}
+.mail_btn{
+    background-color: #a91414;
+    color:white;
 }
