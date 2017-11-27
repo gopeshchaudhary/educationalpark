@@ -34,13 +34,13 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent, DialogVideoComponent } from './_dashboard/index';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ExaminationComponent } from './examination/examination.component';
+import { ProfileComponent } from './profile/profile.component';
 
 // VIDEOANGULAR IMPORTS
 import { VgCoreModule } from 'videogular2/core';
 import { VgControlsModule } from 'videogular2/controls';
 import { VgOverlayPlayModule } from 'videogular2/overlay-play';
 import { VgBufferingModule } from 'videogular2/buffering';
-
 
 // INJECTIONS
 const MODULES = [
@@ -54,7 +54,8 @@ const MODULES = [
 const COMPONENTS = [
   AppComponent, AlertComponent, HomeComponent, LoginComponent,
   DashboardComponent, DialogVideoComponent, ForgetPasswordComponent,
-  RegisterComponent, HeaderComponent, FooterComponent, ExaminationComponent
+  RegisterComponent, HeaderComponent, FooterComponent, ExaminationComponent,
+  ProfileComponent
 ];
 
 const ENTRYCOMPONENTS = [
@@ -65,7 +66,7 @@ const SINGLETONSERVICES = [
 ];
 
 @NgModule({
-  declarations: [...COMPONENTS ],
+  declarations: [...COMPONENTS],
   entryComponents: [...ENTRYCOMPONENTS],
   imports: [...MODULES],
   providers: [...SINGLETONSERVICES],
