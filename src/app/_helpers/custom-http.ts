@@ -47,9 +47,9 @@ export class CustomHttp extends Http {
 
     private handleError(error: any) {
         if (error.status === 401) {
-            console.log('HTTP ERROR -- call gopesh :) '+ error.status);
+            // console.log('HTTP ERROR -- call gopesh :) '+ error.status);
             // 401 unauthorized response so log user out of client
-            window.location.href = '/';
+            window.location.href = '/login';
         }
 
         return Observable.throw(error._body);
