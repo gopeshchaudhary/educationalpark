@@ -1,0 +1,24 @@
+
+.quesH2{
+    background: #eee;
+    padding: 7px 9px;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+.ansBox{
+    padding: 7px 9px;
+}
+.mat-radio-button {
+    display: block;
+    margin-bottom: 10px;
+}
+.mainBodyExam{
+    background: #fffaf7;
+    padding: 20px;
+    box-shadow: 0px 0px 3px 1px #0000001c;
+}
+
+
+
+
+
