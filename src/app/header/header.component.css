@@ -1,17 +1,6 @@
-.header{
-    width: 100%;
-    overflow: hidden;
-    background: #080808e0;
-    color: #fff;
-    top: 0px;
+.header .shrink{
+    background: #080808;
 }
-.head-wrapper{
-	margin-right: 10%;
-    margin-left: 10%;
-    /* margin-top: .5%;
-    margin-bottom: 1%; */
-}
-
 .logo{
 	width: 40%;
     float: left;
@@ -39,15 +28,17 @@
     padding: 16px 16px;
 }
 .component a{
-	color: white;
+	color: white; 
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
     /* text-transform: uppercase; */
 }
 
- .component ul li:hover {
-    background: green;
+ .act {
+    background: white;
     border-radius: 12px;
  }
-  
+  .color{
+    color: #b0362b;
+  }

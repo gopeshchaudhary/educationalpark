@@ -1,122 +1,10 @@
-<!-- Foundation PageID: 37268 -->
+<div class="header_color">
+    <app-header [header]="headertype"></app-header>
+</div>
 <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help" data-submenu-nav=".nav-tutorials">
     <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help" data-submenu-nav=".nav-tutorials">
         <div class="revealer">
             <div class="slider">
-                <div class="tsc-header-wrapper">
-                    <header class="tsc-header no-bullets">
-                        <div class="logo-wrapper">
-                            <a class="logo" href="/">
-                                <object class="svg-logo" type="image/png" data="/../../assets/img/logo_3.png"
-                                        tabindex="-1">
-                                    <img class="black-logo" src="/../../assets/img/logo_3.png" alt="EduPark &amp;reg;">
-                                </object>
-                            </a>
-                        </div>
-                        <div class="menu-trigger-wrapper">
-                            <button type="button" class="menu-trigger" title="Menu">
-                                <span>Menu</span>
-                            </button>
-                        </div>
-                        <div class="global-nav-wrapper">
-                            <div class="mobile-logo-wrapper">
-                                <a class="mobile-logo" href="/">
-                                    <object class="svg-logo" type="image/svg+xml"
-                                            data="https://assets.techsmith.com/Images/interface/logo.svg" tabindex="-1">
-                                        <img src="/../../assets/img/logo_3.png" alt="TechSmith &amp;reg;">
-                                    </object>
-                                </a>
-                            </div>
-                            <ul class="supplemental-buttons">
-                                <li>
-                                    <a class="global-nav-link contact-us" href="https://www.techsmith.com/contact.html" title="Contact Us">
-                                        <i class="navmenu-icon glyph-nav-phone"></i>
-                                        <span>Contact Us</span>
-                                    </a>
-                                </li>
-                                <li class="tsc-dropdown-menu-wrapper">
-                                    <a href="#" class="global-nav-link tsc-dropdown-menu-trigger">
-                                        <i class="navmenu-icon glyph-nav-world"></i>
-                                        <span>U.S. English</span>&nbsp;
-                                        <i class="glyph-chevron-down glyph-small"></i>
-                                    </a>
-                                    <div class="tsc-dropdown-menu-positioner">
-                                        <ul class="tsc-dropdown-menu tsc-language">
-                                            <li>
-                                                <a href="https://www.techsmith.com" class="selected" tabindex="-1">U.S.
-                                                    English
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.techsmith.de" class="" tabindex="0">Deutsch</a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.techsmith.fr" class="" tabindex="0">Français</a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.techsmith.co.jp" class="" tabindex="0">日本語</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li class="mobile-nav-item hide">
-                                    <a class="global-nav-link account-link" href="https://myaccount.techsmith.com/MyAccount/Overview">My Account</a>
-                                </li>
-                                <li class="tsc-dropdown-menu-wrapper profile no-auth">
-                                    <a [routerLink]="['/login']" class="btn signin-link global-nav-link tsc-dropdown-menu-trigger">
-                                        <div class="identity">
-                                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" id="profileIconImageUrl" alt="Profile Image" class="img-circle"
-                                                width="32" height="32">
-                                        </div>
-                                        <div class="sign-in-status" data-sign-out-text="Sign Out" data-sign-in-text="Sign Out">
-                                            Sign Out
-                                        </div>
-                                        <i class="glyph-chevron-down glyph-small"></i>
-                                    </a>
-                                    <div class="tsc-dropdown-menu-positioner">
-                                        <div class="tsc-dropdown-menu arrow_drop">
-                                            <div class="identity-top">
-                                                <a href="https://myaccount.techsmith.com/MyAccount/Overview">
-                                                    <div class="identity">
-                                                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" id="profileImageUrl" alt="Profile Image" class="img-circle"
-                                                            width="72" height="72">
-                                                    </div>
-                                                    <div class="identity-container">
-                                                        <div id="displayName" class="profile-name"></div>
-                                                        <div id="displayEmail" class="profile-email"></div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="identity-bottom">
-                                                <a class="btn btn-tertiary" href="https://myaccount.techsmith.com/MyAccount/Overview" id="Account">My Account
-                                                </a>
-                                                <a class="btn btn-tertiary sign-out-link" id="signout">Sign Out</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <!-- .supplemental-buttons -->
-                        </div>
-                        <!-- .global-nav-wrapper -->
-
-                        <form class="search">
-                            <div class="search-input-wrapper">
-                                <label for="main_google_query">Search EduPark.com</label>
-                                <input type="search" class="search-input" name="q" id="main_google_query" placeholder="Search Edupark.com" />
-                                <button type="submit" class="search-submit">
-                                    <span>Search Educational Portal</span>
-                                </button>
-                            </div>
-                            <button type="button" class="search-cancel">
-                                <span>Cancel</span>
-                            </button>
-                        </form>
-                    </header>
-                    <!-- .tsc-header -->
-
-                </div>
                 <!-- .tsc-header-wrapper -->
                 <div class="content-wrapper">
                     <div id="wrapper">
@@ -166,40 +54,44 @@
                                     <div class="navigation-bar first-primary">
                                         <ul id="menu">
                                             <li *ngFor="let item of imageUrlObject">
-                                                <mat-card  class="example-card" (click)="openDialog(item)">
+                                                <mat-card class="example-card" (click)="openDialog(item)">
                                                     <mat-card-header>
                                                         <div mat-card-avatar class="example-header-image">
-                                                        </div>                                              
-                                                        <mat-card-title>Gst Videos</mat-card-title>                                            
+                                                        </div>
+                                                        <mat-card-title>Gst Videos</mat-card-title>
                                                         <mat-card-subtitle>Training</mat-card-subtitle>
-                                                    </mat-card-header> 
-                                                    <img mat-card-image src="{{item.imageSrc}}" >
-                                                    <div *ngIf="item.showFlag" >
-                                                        <mat-card-content> 
+                                                    </mat-card-header>
+                                                    <img mat-card-image src="{{item.imageSrc}}">
+                                                    <div *ngIf="item.showFlag">
+                                                        <mat-card-content>
                                                             <mat-icon class="icon_mod">done</mat-icon>
                                                         </mat-card-content>
-                                                    </div>                                          
+                                                    </div>
                                                 </mat-card>
-                                            </li>              
+                                            </li>
                                         </ul>
+                                        <a mat-mini-fab  routerLink="/exam" *ngIf="allFlag">Take Test</a>
                                     </div>
                                 </div>
                                 <div class="sticky-nav-bar-spacer"></div>
                                 <div class="region two-column primary-grey0" data-id="37269">
 
-                                <div id="region-switcher" class="tsc-tab camtasia-theme primary-grey3" data-tabtitles="Getting Started, Reach Higher, Mobile Apps, More Help"
-                                    data-id="34356">
-                                    <section class="region five-column primary-grey3" data-id="34331">
+                                    <div id="region-switcher" class="tsc-tab camtasia-theme primary-grey3" data-tabtitles="Getting Started, Reach Higher, Mobile Apps, More Help"
+                                        data-id="34356">
+                                        <section class="region five-column primary-grey3" data-id="34331">
 
 
-                                        <div class="section-header ">
-                                            <p class="base1">Start Here</p>
+                                            <div class="section-header ">
+                                                <p class="base1">Start Here</p>
 
-                                            <p>Save, edit, and file a GST with this series of essential skills and techniques.
-                                                Or, use offline utility for saving directly to portal.</p>
-                                        </div>
-                                    </section>
-                                    <!-- .region -->
+
+                                                <p>Save, edit, and file a GST with this series of essential skills and techniques.
+                                                    Or, use offline utility for saving directly to portal.</p>
+                                            </div>
+                                        </section>
+                                        <!-- .region -->
+                                    </div>
+                                    <!-- .column-block-wrapper -->
                                 </div>
                             </div>
                         </div>
@@ -208,4 +100,3 @@
             </div>
         </div>
     </div>
-</div>
