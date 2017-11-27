@@ -1,32 +1,37 @@
-<div *ngIf="public; else privateheader" class="clearfix">
-    <div class="container clearfix">
-        <div class="logo">
-            <a class="" href="#page-top">
-                <img class="logo-img" src="/../../assets/img/logo.png" alt="Logo">
-            </a>
+<div *ngIf="public; else privateheader" class="clearfix header">
+    <div id="nav" class="clearfix ">
+        <div class="container">
+            <div class="logo">
+                <a class="" href="#page-top">
+                    <img class="logo-img" src="/../../assets/img/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="component">
+                <ul class="">
+                    <li class="">
+                        <a class="" href="#home">Home</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#about">About</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#features">Features</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#contact">Contact us</a>
+                    </li>
+                    <li class="">
+                        <a class="" routerLink="/login" routerLinkActive="active">Login</a>
+                    </li>
+                    <li class="act">
+                        <a class="" routerLink="/register" routerLinkActive="active">
+                            <span class="color">Enroll Here</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="component">
-            <ul class="">
-                <li class="">
-                    <a class="" href="#blog">Home</a>
-                </li>
-                <li class="">
-                    <a class="" href="#about">About</a>
-                </li>
-                <li class="">
-                    <a class="" href="#codplay">Features</a>
-                </li>
-                <li class="">
-                    <a class="" href="#discuss">Contact us</a>
-                </li>
-                <li class="">
-                    <a class="" routerLink="/login" routerLinkActive="active">Login</a>
-                </li>
-                <li class="act">
-                    <a class="" routerLink="/register" routerLinkActive="active"><span class="color">Enroll Here</span></a>
-                </li>
-            </ul>
-        </div>
+
     </div>
 </div>
 

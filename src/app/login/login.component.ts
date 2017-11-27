@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login() {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
       data => {
         this.alertService.success("Login Successfully");
-        this.router.navigate([this.returnUrl]);
+        this.router.navigate(['/dashboard']);
       },
       error => {
         this.alertService.error(error);
