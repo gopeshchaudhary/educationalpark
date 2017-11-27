@@ -14,53 +14,76 @@ export class ExaminationComponent implements OnInit {
   headertype = 'private';
   public examResponse: any;
   public radioSelected = [];
-
+  private moduleid;
+  public questions; //question initialiize
+  public questionOption; //question initialiize
+  public questionId; //question initialiize
+  
+  public quesId = 0;
+  private terminateTest;
+  public finalTest = false;
+  private answerArray = [];
+  private storeObj = {};
+ public isChecked:any = [];
 
   constructor(private _examService : ExaminationService, private _urlmanager: UrlManagerService, private _httpServiceObj: ApiManagerService, private alertService: AlertService) { }
 
   ngOnInit() {
-    this._examService.getExam('mod1').subscribe( exam =>  {
-      this.examData = exam;
-    this.showExamdata();} );
+    this.moduleid = 'mod1';
+    this._examService.getExam(this.moduleid).subscribe( examObj =>  {
+      examObj = examObj[0];
+      if(this.moduleid === examObj.moduleid){
+        this.examData = examObj.exam;
+        console.log(this.examData);
+        this.terminateTest = this.examData.length;
+      }
+    this.init();
+    });
   }
-  showExamdata(){
-    console.log(JSON.stringify(this.examData[0]));
-  }
-  // function is used to call the service
-  // @input : E- Exam Detail , Type:Get, Type Get:Exam
-
-  // getExamDetail(Obj): void {
-  //   const examUrl = this._urlmanager.resolveUrl('E', 'G', 'Exam');
-  //   const method = 'GET';
-  //   const body = Obj;
-  //   this._httpServiceObj.doHttpRequest(examUrl, method, body).subscribe(res => {
-  //     console.log(res);
-  //     this.alertService.success('Succefully Get data');
-  //     this.examResponse = res;
-  //   }, (err) => {
-  //     this.alertService.error(err);
-  //   }
-  //   );
-
-  // }
-
-  // var count = 0;
 
   init(): void {
-    for (var i = 0; i < this.examData.length; i++) {
-      var output = this.examData[i];
-    }
+    this.renderQuestion(this.quesId);
   }
-  // init();
+
+  // method for show each question
+  renderQuestion(qid){
+    this.questionId = this.examData[qid].id;
+    this.questions = this.examData[qid].question;
+    this.questionOption = this.examData[qid].options;
+  }
 
   // previous click
   prevClick(): void {
-
+    // if(this.quesId){
+      this.renderQuestion(--this.quesId);
+    // }
   }
 
-  // previous click
+  // next click
   nextClick(): void {
 
+    this.isChecked = true;
+    // answerArray
+    // this.storeObj.id='j';
+    var storeObj: {[k: string]: any} = {};
+    storeObj.id = this.questionId;
+    storeObj.answer = this.radioSelected || "";
+    this.answerArray.push(storeObj);
+    console.log(this.answerArray);
+    
+    if(++this.quesId < this.terminateTest ){
+      this.renderQuestion(this.quesId);
+    }
+    // for(var selected in this.answerArray){
+
+    // }
+    delete this.radioSelected ;
+  }
+
+
+
+  submitTest(){
+    console.log('TEST IS SUBMITTED');
   }
 
 
