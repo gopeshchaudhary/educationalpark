@@ -30,11 +30,11 @@ import { LoginComponent } from './login/index';
 import { AlertComponent } from './_directives/index';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent, DialogProfileComponent, DialogResetPassComponent } from './header/index';
 import { DashboardComponent, DialogVideoComponent } from './_dashboard/index';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ExaminationComponent } from './examination/examination.component';
-import { ProfileComponent } from './profile/profile.component';
+
 
 // VIDEOANGULAR IMPORTS
 import { VgCoreModule } from 'videogular2/core';
@@ -52,17 +52,17 @@ const MODULES = [
 ];
 
 const COMPONENTS = [
-  AppComponent, AlertComponent, HomeComponent, LoginComponent,
-  DashboardComponent, DialogVideoComponent, ForgetPasswordComponent,
-  RegisterComponent, HeaderComponent, FooterComponent, ExaminationComponent,
-  ProfileComponent
+  AppComponent, AlertComponent, HomeComponent, LoginComponent, RegisterComponent,
+  DashboardComponent, ForgetPasswordComponent, HeaderComponent, FooterComponent,
+  ExaminationComponent, DialogVideoComponent, DialogProfileComponent, DialogResetPassComponent
 ];
 
 const ENTRYCOMPONENTS = [
-  DialogVideoComponent
+  DialogVideoComponent, DialogProfileComponent, DialogResetPassComponent
 ];
 const SINGLETONSERVICES = [
-  customHttpProvider, AuthGuard, AlertService, AuthenticationService, UserService, UrlManagerService, ApiManagerService, ExaminationService
+  customHttpProvider, AuthGuard, AlertService, AuthenticationService, 
+  UserService, UrlManagerService, ApiManagerService, ExaminationService
 ];
 
 @NgModule({

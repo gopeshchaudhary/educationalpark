@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlManagerService } from '../_services/url-manager.service';
 import { ApiManagerService } from '../_services/api-manager.service';
-import { AlertService,ExaminationService } from '../_services/index';
+import { AlertService, ExaminationService } from '../_services/index';
 
 
 @Component({
@@ -15,15 +15,15 @@ export class ExaminationComponent implements OnInit {
   public examResponse: any;
   public radioSelected = [];
 
-
-  constructor(private _examService : ExaminationService, private _urlmanager: UrlManagerService, private _httpServiceObj: ApiManagerService, private alertService: AlertService) { }
+  constructor(private _examService: ExaminationService, private _urlmanager: UrlManagerService, private _httpServiceObj: ApiManagerService, private alertService: AlertService) { }
 
   ngOnInit() {
-    this._examService.getExam('mod1').subscribe( exam =>  {
+    this._examService.getExam('mod1').subscribe(exam => {
       this.examData = exam;
-    this.showExamdata();} );
+      this.showExamdata();
+    });
   }
-  showExamdata(){
+  showExamdata() {
     console.log(JSON.stringify(this.examData[0]));
   }
   // function is used to call the service
@@ -62,8 +62,6 @@ export class ExaminationComponent implements OnInit {
   nextClick(): void {
 
   }
-
-
 
   submitExam() {
     const examUrl = this._urlmanager.resolveUrl('E', 'PO', 'submitExam');

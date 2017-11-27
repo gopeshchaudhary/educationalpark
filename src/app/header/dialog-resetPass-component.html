@@ -1,0 +1,26 @@
+<div class="card clearfix" style="margin-top: 2px;">
+        <h3 class="title">Reset your password </h3>
+        <form class="form">
+          <ul>
+            <li>
+              <label>Old Password</label>
+              <input type="password" name='oldpwd' #oldpwds="ngModel" [(ngModel)]="model.oldpwd"  required>
+            </li>
+            <li>
+              <label>New Password</label>
+              <input type="password" name='newpwd' #newpwds="ngModel" [(ngModel)]="model.newpwd"  placeholder="Password should be minimum of 8 characters"
+                (blur)="newPassFunc(newpwd)" required>
+            </li>
+            <li>
+              <label>Confirm Password</label>
+              <input type="password" name='confirmpwd' #confirmpwds="ngModel" [(ngModel)]="model.confirmpwd" placeholder="Confirm Password"
+                (keyup)="confirmpasswordFunc(confirmpwd)" required>
+            </li>
+            <li>
+              <a href="#">
+                <button (click)="resetPassword()" class="submit">Submit</button>
+              </a>
+            </li>
+          </ul>
+        </form>
+      </div>

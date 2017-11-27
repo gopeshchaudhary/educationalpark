@@ -1,3 +1,67 @@
-<p>
-  profile works!
-</p>
+<div class="header_color">
+  <app-header [header]="headertype"></app-header>
+</div>
+
+<div class="card">
+  <h3 class="title">User Profile</h3>
+  <form class="form">
+    <ul>
+      <li>
+        <label>First Name</label>
+        <input type="text" class="form-control" placeholder="First Name" pattern="[a-zA-Z]+" #nameFn="ngModel" [(ngModel)]="firstname"
+          name="firstname" value="Creative Code Inc." required>
+        <div *ngIf="nameFn.invalid && (nameFn.dirty || nameFn.touched)">
+          <span class="alertInform" *ngIf="nameFn.errors.required">
+            First Name is required.
+          </span>
+          <span class="alertInform" *ngIf="nameFn.errors.pattern">
+            Only Alphabets allowed.
+          </span>
+        </div>
+      </li>
+      <li>
+        <label>Last Name</label>
+        <input type="text" class="form-control" placeholder="Last Name" pattern="[a-zA-Z]+" #nameLn="ngModel" [(ngModel)]="lname"
+          name="lnames" value="Creative Code Inc." required>
+        <div *ngIf="nameLn.invalid && (nameLn.dirty || nameLn.touched)">
+          <span class="alertInform" *ngIf="nameLn.errors.required">
+            Last Name is required.
+          </span>
+          <span class="alertInform" *ngIf="nameLn.errors.pattern">
+            Only Alphabets allowed.
+          </span>
+        </div>
+      </li>
+      <li>
+        <label for="exampleInputEmail1">Email ID</label>
+        <input type="email" class="form-control" #emailLV="ngModel" [(ngModel)]="email" name="email" placeholder="Email" required>
+        <div *ngIf="emailLV.invalid && (emailLV.dirty || emailLV.touched)">
+          <span class="alertInform" *ngIf="emailLV.errors.required">
+            Email is required.
+          </span>
+        </div>
+      </li>
+      <li>
+          <label>Mobile No.</label>
+          <input type="text" class="form-control" #mobileLV="ngModel" [(ngModel)]="mobile" name="mobile" placeholder="mobile" value="mobile"
+            required>
+          <div *ngIf="mobileLV.invalid && (mobileLV.dirty || mobileLV.touched)">
+            <span class="alertInform" *ngIf="mobileLV.errors.required">
+              Mobile Number is required.
+            </span>
+          </div>
+      </li>
+      <li>
+          <button type="submit" class="submit" (click)="updateProfile()">Update Profile</button>
+      </li>
+    </ul>
+  </form>
+</div>
+
+
+
+
+
+
+
+
