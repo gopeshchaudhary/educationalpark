@@ -22,7 +22,7 @@ export class UrlManagerService {
   private initializeExamUrl() {
     this.loginSet = {
       get: {
-      getExamData: ''
+      getExamData: '/exam/getexam'
     },
       post: {},
       put: {},

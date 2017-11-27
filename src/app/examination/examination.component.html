@@ -1,20 +1,32 @@
 <app-header [header]="headertype"></app-header>
-<div id="form_container" class="card">
-  <h1 class="title">Questionnaire</h1>
-<li *ngFor="let item of examData let selecteIndex = index">
-<span>
-  {{item.ques}}
-  <span  >  
-    <mat-radio-group [(ngModel)]="radioSelected[selecteIndex]" >
-      <mat-radio-button *ngFor="let items of item.options let i = index" [value]="items"> {{items}}</mat-radio-button>
-     
-    </mat-radio-group>
-   </span>
-  
-</span>
 
-</li>
-<button mat-raised-button (click)="submitExam(radioSelected)" color="primary">Submit Exam </button>
+<div class="container">
+  <div class="row">
+      <div id="form_container" class="col-md-12 col-sm-12 col-xs-12 mainBodyExam">
+          <h1 class="title">Questionnaire</h1>
+        
+          <div *ngFor="let item of examData let selecteIndex = index">
+            <h2 class="quesH2"> {{item.ques}}</h2>
+            <div class="ansBox">
+              <span>  
+              <mat-radio-group [(ngModel)]="radioSelected[selecteIndex]" >
+                <mat-radio-button *ngFor="let items of item.options let i = index" [value]="items"> {{items}}</mat-radio-button>
+               
+              </mat-radio-group>
+             </span>
+            </div>
+        
+          </div>
+          <div>
+            <button class="btn btn-primary" ng-click="prevClick()" type="button">Previous</button>
+            <button class="btn btn-primary" ng-click="nextClick()" type="button">Next</button>
+          </div>
+          <button mat-raised-button (click)="submitExam(radioSelected)" color="primary">Submit Exam </button>
+        
+        
+        </div>
 
+  </div>
 
 </div>
+
