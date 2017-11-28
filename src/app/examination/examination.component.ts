@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlManagerService } from '../_services/url-manager.service';
 import { ApiManagerService } from '../_services/api-manager.service';
-import { AlertService,ExaminationService } from '../_services/index';
+import { AlertService, ExaminationService } from '../_services/index';
 
 
 @Component({
@@ -85,8 +85,6 @@ export class ExaminationComponent implements OnInit {
   submitTest(){
     console.log('TEST IS SUBMITTED');
   }
-
-
 
   submitExam() {
     const examUrl = this._urlmanager.resolveUrl('E', 'PO', 'submitExam');

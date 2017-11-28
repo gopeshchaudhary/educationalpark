@@ -39,6 +39,54 @@
     background: white;
     border-radius: 12px;
  }
-  .color{
+.color{
     color: #b0362b;
   }
+
+.profile {
+    width: auto;
+    float: right;
+}
+.profile ul {
+    position: relative;
+    width: 100%;
+}
+.profile ul li {
+    display: inline-block;
+    width: 100%;
+    /* background: #ededed; */
+}
+.profile li a {
+    color: rgb(243, 235, 235);
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    padding: 10px 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.profile li a img {
+    height: 25px;
+    margin-right: 6px;
+}
+.profile li ul {
+    display: none;
+    border: 1px solid #d7d7d7;
+    z-index: 12;
+    position: absolute;
+    background: #262626;
+    top: 40px;
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.22);
+    width: 190px;
+    right: 0;
+}
+
+.profile li li a:hover {
+    color: rgb(108, 163, 52);
+    background: #fff;
+}
+
+
+.profile li:hover ul {
+    display: block;
+}

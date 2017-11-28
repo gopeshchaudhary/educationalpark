@@ -1,10 +1,9 @@
-
 import { Component, OnInit, Inject } from '@angular/core';
-
 import { Router, ActivatedRoute } from '@angular/router';
+// included for modal dialog -- 2 lines
 import { MatDialog } from '@angular/material';
-
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 import { AlertService, AuthenticationService, UserService } from '../_services/index';
 
 declare var $: any;
@@ -24,15 +23,15 @@ export class DashboardComponent implements OnInit {
   public allFlag: boolean;
   headertype: 'private';
   public imageUrlObject = [];
-  private count= 0;
+  private count = 0;
 
   constructor(
-      private route: ActivatedRoute,
-      private router: Router,
-      private authenticationService: AuthenticationService,
-      private userService: UserService,
-      private dialog: MatDialog,
-      private alertService: AlertService) { }
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private userService: UserService,
+    private dialog: MatDialog,
+    private alertService: AlertService) { }
 
   ngOnInit() {
     this.imageUrlObject = [{
@@ -53,21 +52,13 @@ export class DashboardComponent implements OnInit {
       showFlag: false,
       imageSrc: '../../assets/img/gst2Training.png'
     }
-  ];
-    // jquery setup for form
-    // $('.toggle').on('click', function() {
-    //   $('.container').stop().addClass('active');
-    // });
-
-    // $('.close').on('click', function() {
-    //   $('.container').stop().removeClass('active');
-    // });
+    ];
   }
 
   openDialog(selectedVideo: any): void {
     selectedVideo.showFlag = true;
     this.count++;
-    this.allFlag = (this.count===this.imageUrlObject.length)?true:false;
+    this.allFlag = (this.count === this.imageUrlObject.length) ? true : false;
     const dialogRef = this.dialog.open(DialogVideoComponent, {
       width: '800px',
       data: selectedVideo
@@ -81,18 +72,17 @@ export class DashboardComponent implements OnInit {
   login() {
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password)
-        .subscribe(
-            data => {
-              this.router.navigate([this.returnUrl]);
-            },
-            error => {
-              this.alertService.error(error);
-              this.loading = false;
-            });
+      .subscribe(
+      data => {
+        this.router.navigate([this.returnUrl]);
+      },
+      error => {
+        this.alertService.error(error);
+        this.loading = false;
+      });
   }
 }
-
-
+//open dialouge
 @Component({
   selector: 'app-dialog-overview-example-dialog',
   templateUrl: 'dialog-videoplayer-component.html',
@@ -105,3 +95,4 @@ export class DialogVideoComponent {
     this.dialogRef.close();
   }
 }
+
