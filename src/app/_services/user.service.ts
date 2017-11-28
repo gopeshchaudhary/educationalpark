@@ -26,4 +26,16 @@ export class UserService {
     delete(_id: string) {
         return this.http.delete('/users/' + _id);
     }
+
+    getprofile(username){
+        return this.http.post('/getprofile', { username })
+        .map((response: Response) => {
+            // getprofile successful if there's userprofile in response
+            let profile = response.json();
+            // profile.username;
+            // profile.phoneNo;
+            // profile.emailID;
+            return profile;
+        });
+    }
 }
