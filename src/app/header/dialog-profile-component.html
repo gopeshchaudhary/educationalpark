@@ -1,4 +1,4 @@
-<div class="card" style="margin-top: 2px;">
+<div class="card clearfix top_margin">
   <h3 class="title">User Profile</h3>
   <form class="form">
     <ul>
@@ -14,7 +14,7 @@
       </li>
       <li>
         <label for="exampleInputEmail1">Email ID</label>
-        <input type="email" class="form-control" #emailLV="ngModel" [(ngModel)]="data.email" name="email" placeholder="Email" required>
+        <input type="email" class="form-control" disabled="true"  #emailLV="ngModel" [(ngModel)]="data.email" name="email" value="madhu.gupta@sugaldamani.com" required>
         <div *ngIf="emailLV.invalid && (emailLV.dirty || emailLV.touched)">
           <span class="alertInform" *ngIf="emailLV.errors.required">
             Email is required.
@@ -23,7 +23,7 @@
       </li>
       <li>
         <label>Mobile No.</label>
-        <input type="text" class="form-control" #mobileLV="ngModel" [(ngModel)]="data.mobile" name="mobile" placeholder="mobile" value=""
+        <input type="text" class="form-control" disabled="true" #mobileLV="ngModel" [(ngModel)]="data.mobile" name="mobile" placeholder="" value="8860998412"
           required>
         <div *ngIf="mobileLV.invalid && (mobileLV.dirty || mobileLV.touched)">
           <span class="alertInform" *ngIf="mobileLV.errors.required">
@@ -31,9 +31,9 @@
           </span>
         </div>
       </li>
-      <li>
+      <!-- <li>
         <button type="submit" class="submit" (click)="updateProfile()">Update Profile</button>
-      </li>
+      </li> -->
     </ul>
   </form>
 </div>

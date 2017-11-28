@@ -2,30 +2,35 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 // included for modal dialog -- 2 lines
 import { MatDialog } from '@angular/material';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserService } from '../_services/index';
+import { AlertService, UserService } from '../_services/index';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
   @Input() header: string;
-  public public:boolean;
+  public public: boolean;
   model: any = {};
-  loading:boolean;
-  
+  loading: boolean;
+  public resetdiv;
+  public thankumessages;
+
   constructor(
     private dialog: MatDialog,
-    private _userService:UserService
+    private _userService: UserService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
-    this.public = (this.header=='public') ? true:false; //header type 
+    this.public = (this.header == 'public') ? true : false; //header type 
+
     // changing color of header on shrink
-    $(window).scroll(function() {
+    $(window).scroll(function () {
       if ($(document).scrollTop() > 50) {
         $('#nav').addClass('shrink');
       } else {
@@ -33,47 +38,52 @@ export class HeaderComponent implements OnInit {
       }
     });
     /*end of header on shrink */
+
   }
-  getProfile(username){
+  //get Profile
+  getProfile(username) {
     this._userService.getprofile(username).subscribe(profile => {
       this.model.email = profile.emailID;
       this.model.mobile = profile.phoneNo;
       this.model.username = profile.username;
     });
   }
-  getUsername(){
+
+  // get username for getting profile
+  static getUsername() {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.username) {
       return currentUser.username;
     }
   }
-  // Opening DiaLouge for Profile update
+
+  // Opening DiaLouge for get Profile 
   openProfileDialog(selectedVideo: any): void {
-    this.getProfile(this.getUsername());
+    this.getProfile(HeaderComponent.getUsername());
     const dialogRef = this.dialog.open(DialogProfileComponent, {
       width: '600px',
-      data : this.model
+      data: this.model
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
-  /* end of update Profile */
+  /* end of get Profile */
 
   // Opening DiaLouge for Reset Password
   openResetPassDialog(selectedVideo: any): void {
-     const dialogRef = this.dialog.open(DialogResetPassComponent, {
-       width: '600px',
-     });
- 
-     dialogRef.afterClosed().subscribe(result => {
-       console.log('The dialog was closed');
-     });
-   }
-   /* End of  Reset Password */
+    const dialogRef = this.dialog.open(DialogResetPassComponent, {
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  /* End of  Reset Password */
 
 }
-// DiaLouge for Profile update
+// DiaLouge for get Profile
 @Component({
   selector: 'app-dialog-overview-profile-dialog',
   templateUrl: 'dialog-profile-component.html',
@@ -85,11 +95,8 @@ export class DialogProfileComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  updateProfile(){
-     console.log('udpated profile .......');
-  }
 }
-/* end of update Profile */
+/* end of get Profile */
 
 // DiaLouge for Reset Password
 @Component({
@@ -98,14 +105,35 @@ export class DialogProfileComponent {
 })
 export class DialogResetPassComponent {
   model: any = {};
+  public resetdiv = true;
+  public thankumessages = false;
+  public passwd: any;
+  public confirmed;
   constructor(
     public dialogRef: MatDialogRef<DialogResetPassComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any) { }
+    private _userService: UserService,
+    private alertService: AlertService,
+
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
   onNoClick(): void {
     this.dialogRef.close();
   }
-  resetPassword(){
-     console.log('Password reset.......');
+  //reset Password
+  resetPassword() {
+    this._userService.resetPassword(HeaderComponent.getUsername(), this.model.oldpwd, this.model.newpwd).subscribe(
+      response => {
+        const status = response.status;
+        this.alertService.success(status);
+        this.thankumessages = true;
+        this.resetdiv = false;
+      },
+      error => {
+        error = JSON.parse(error);
+        this.alertService.error(error.message);
+      }
+    );
   }
+
+
 }
 /* End of  Reset Password */
