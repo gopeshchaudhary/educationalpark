@@ -3,7 +3,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div id="form_container" class="col-md-12 col-sm-12 col-xs-12 mainBodyExam">
+    <div id="form_container" class="col-md-12 col-sm-12 col-xs-12 mainBodyExam" *ngIf="flagTest">
       <h1 class="title">Questionnaire</h1>
       <!-- <div *ngFor="let item of examData let selecteIndex = index"> -->
       <div>
@@ -11,7 +11,7 @@
         <div class="ansBox">
           <span>  
               <mat-radio-group [(ngModel)]="radioSelected">
-                <mat-radio-button *ngFor="let items of questionOption let i = index" value = "{{questionId+'#'+i}}" [checked]="isChecked[i]"> {{items}}</mat-radio-button>
+                <mat-radio-button *ngFor="let items of questionOption let i = index" value = "{{i}}"> {{items}}</mat-radio-button>
                 
                 <!-- <input type="radio" value="1" [checked]="model.ForeignCompany.ProfitCode === 1"
                 id="point1" (change)="onProfitSelectionChange(1)" name="ProfitCode"> -->
@@ -29,6 +29,11 @@
         </ng-template>
       </div>
 
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 mainBodyExam" *ngIf="flagResult">
+      <h1 class="title">Result</h1>
+      <h2>{{showResult.status}}</h2>
+      <a routerLink="/dashboard">Back to Course</a>
     </div>
 
   </div>

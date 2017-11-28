@@ -20,4 +20,17 @@ export class ExaminationService {
                 
             });
     }
+
+
+    submitExam(testData) {
+        return this.http.post('/exam/submitexam', { testData : testData })
+            .map((response: Response) => {
+                // exam successfully fetched
+                
+                return (response)? response.json() : {};
+                
+                
+            });
+    }
+
 }
