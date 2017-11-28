@@ -15,7 +15,9 @@ export class ExaminationService {
         return this.http.post('/exam/getexam', { moduleid : moudleid })
             .map((response: Response) => {
                 // exam successfully fetched
+                
                 return (response)? response.json() : {};
+                
             });
     }
 }
