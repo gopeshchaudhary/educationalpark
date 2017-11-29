@@ -4,7 +4,7 @@
     </div>
     <div class="card" *ngIf="registerFlag">
         <h2 class="title">Register</h2>
-        <form name="form" class="form" (ngSubmit)="regf.form.valid && register()" #regf="ngForm" novalidate>
+        <form name="form" class="form" (ngSubmit)="regf.form.valid" #regf="ngForm" novalidate>
             <ul>
                 <li [ngClass]="{ 'has-error': regf.submitted && !userNames.valid }">
                     <label for="regusername">Username*</label>
@@ -53,7 +53,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <button type="submit" (click)="register()" class="submit">SUBMIT</button>
+                        <button type="submit" (click)="generateOTP()" class="submit">SUBMIT</button>
                     </a>
                 </li>
             </ul>
@@ -69,7 +69,7 @@
             <ul>
                 <li>
                     <label>OTP</label>
-                    <input type="text" name='userotp' class="table-input" #otps="ngModel" [(ngModel)]="otp" required>
+                    <input type="text" name='userotp' class="table-input" #otps="ngModel" [(ngModel)]="model.otp" required>
                     <div *ngIf="otps.invalid && (otps.dirty ||otps.touched)">
                         <span class="alertInform" *ngIf=otps.errors.required>
                             OTP is required
@@ -78,7 +78,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <button (click)="mobileotpVerifyFunc()" class="submit">Verify</button>
+                        <button (click)="VerifyOTP()" class="submit">Verify</button>
                     </a>
                 </li>
             </ul>
