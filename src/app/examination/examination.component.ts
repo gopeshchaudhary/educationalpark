@@ -13,78 +13,104 @@ export class ExaminationComponent implements OnInit {
   public examData: any;
   headertype = 'private';
   public examResponse: any;
-  public radioSelected = [];
+  public radioSelected;
   private moduleid;
   public questions; //question initialiize
   public questionOption; //question initialiize
   public questionId; //question initialiize
-  
+
   public quesId = 0;
   private terminateTest;
   public finalTest = false;
   private answerArray = [];
   private storeObj = {};
- public isChecked:any = [];
+  public isChecked: any = [];
+  private sendData;
+  public showResult;
+  public flagResult : boolean;
+  public flagTest : boolean;
 
-  constructor(private _examService : ExaminationService, private _urlmanager: UrlManagerService, private _httpServiceObj: ApiManagerService, private alertService: AlertService) { }
+  constructor(private _examService: ExaminationService, private _urlmanager: UrlManagerService, private _httpServiceObj: ApiManagerService, private alertService: AlertService) { }
 
   ngOnInit() {
+    this.flagTest = true;
+
     this.moduleid = 'mod1';
-    this._examService.getExam(this.moduleid).subscribe( examObj =>  {
+    this._examService.getExam(this.moduleid).subscribe(examObj => {
       examObj = examObj[0];
-      if(this.moduleid === examObj.moduleid){
+      if (this.moduleid === examObj.moduleid) {
         this.examData = examObj.exam;
-        console.log(this.examData);
         this.terminateTest = this.examData.length;
       }
-    this.init();
+      this.init();
     });
   }
 
   init(): void {
     this.renderQuestion(this.quesId);
   }
-
+  setanswer(questionId) {
+    delete this.radioSelected;
+    if (this.answerArray[questionId] && this.answerArray[questionId].answer !== '') {
+      this.radioSelected = this.answerArray[questionId].answer;
+    }
+  }
   // method for show each question
-  renderQuestion(qid){
+  renderQuestion(qid) {
     this.questionId = this.examData[qid].id;
     this.questions = this.examData[qid].question;
     this.questionOption = this.examData[qid].options;
+    this.setanswer(this.quesId);
   }
 
   // previous click
   prevClick(): void {
-    // if(this.quesId){
-      this.renderQuestion(--this.quesId);
-    // }
+    this.renderQuestion(--this.quesId);
   }
 
   // next click
   nextClick(): void {
-
     this.isChecked = true;
-    // answerArray
-    // this.storeObj.id='j';
-    var storeObj: {[k: string]: any} = {};
+    var storeObj: { [k: string]: any } = {};
     storeObj.id = this.questionId;
     storeObj.answer = this.radioSelected || "";
-    this.answerArray.push(storeObj);
-    console.log(this.answerArray);
-    
-    if(++this.quesId < this.terminateTest ){
+    this.answerArray[storeObj.id - 1] = (storeObj);
+    if (++this.quesId < this.terminateTest) {
       this.renderQuestion(this.quesId);
     }
-    // for(var selected in this.answerArray){
-
-    // }
-    delete this.radioSelected ;
   }
 
 
+  // Submit test with Answersheet array.
+  submitTest() {
+    var storeObj: { [k: string]: any } = {};
+    storeObj.id = this.questionId;
+    storeObj.answer = this.radioSelected || "";
+    this.answerArray[storeObj.id - 1] = (storeObj);
+    this.sendData = {
+      'moduleid': this.moduleid,
+      'answerSheets': this.answerArray
+    };
+    this._examService.submitExam(this.sendData).subscribe(
+      
+    result => {
+      // Handle result
+      console.log(result);
+      this.flagResult = true;
+      this.flagTest = false;
 
-  submitTest(){
-    console.log('TEST IS SUBMITTED');
+      this.showResult = result;
+      
+    },
+    error => {
+      console.log(error);
+      this.alertService.error(error);
+      
+    }
+  );
+
   }
+  
 
   submitExam() {
     const examUrl = this._urlmanager.resolveUrl('E', 'PO', 'submitExam');
