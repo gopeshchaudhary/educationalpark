@@ -95,4 +95,3 @@ export class DialogVideoComponent {
     this.dialogRef.close();
   }
 }
-

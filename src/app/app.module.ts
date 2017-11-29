@@ -31,7 +31,7 @@ import { AlertComponent } from './_directives/index';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent, DialogProfileComponent, DialogResetPassComponent } from './header/index';
-import { DashboardComponent, DialogVideoComponent } from './_dashboard/index';
+import { DashboardComponent, DialogVideoComponent} from './_dashboard/index';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ExaminationComponent } from './examination/examination.component';
 
@@ -58,7 +58,8 @@ const COMPONENTS = [
 ];
 
 const ENTRYCOMPONENTS = [
-  DialogVideoComponent, DialogProfileComponent, DialogResetPassComponent
+  DialogVideoComponent, DialogProfileComponent, DialogResetPassComponent, 
+ 
 ];
 const SINGLETONSERVICES = [
   customHttpProvider, AuthGuard, AlertService, AuthenticationService, 
