@@ -11,30 +11,31 @@
                         <div class="content">
                             <!-- ~~ Center  -->
                             <div class="content-left">
-                                <section>
+                                <section *ngIf="firstShowOption">
                                    <div class="container clearfix">
-                                       <div class="section">
-                                          <h3 class="title">Accounting</h3> 
+                                       <div class="section" *ngFor="let section of sectionName">
+                                          <h3 class="title"><a href="javascript:void(0)" (click)="getDataModule(section.sectionid)"> {{section.name}}</a></h3> 
                                        </div>
-                                       <div class="section">
-                                        <h3 class="title"> gst</h3>
-                                       </div>
+                                       <!-- <div class="section">
+                                        <h3 class="title"> <a href="javascript:void(0)" (click)="getDataModule('gst')">gst </a> </h3>
+                                       </div> -->
                                    </div>
                                 </section>
 
-                                <div class="navigation-bar-wrapper navigation-bar-camtasia">
+                                <div class="navigation-bar-wrapper navigation-bar-camtasia" *ngIf="selectedOption">
+                                    <a href="javascript:void(0)" (click)= "backTo()">Back to Module</a>
                                     <div class="navigation-bar first-primary">
                                         <ul id="menu">
-                                            <li *ngFor="let item of imageUrlObject">
-                                                <mat-card class="example-card" (click)="openDialog(item)">
+                                            <li *ngFor="let item of storeArray">
+                                                <mat-card class="example-card" (click)="openDialog(item.key,item)">
                                                     <mat-card-header>
                                                         <div mat-card-avatar class="example-header-image">
                                                         </div>
                                                         <mat-card-title>Gst Videos</mat-card-title>
                                                         <mat-card-subtitle>Training</mat-card-subtitle>
                                                     </mat-card-header>
-                                                    <img mat-card-image src="{{item.imageSrc}}">
-                                                    <div *ngIf="item.showFlag">
+                                                    <img mat-card-image src="../../assets/img/gstTraining.png">
+                                                    <div *ngIf="item.video.status != 'notwatched'">
                                                         <mat-card-content>
                                                             <mat-icon class="icon_mod">done</mat-icon>
                                                         </mat-card-content>
@@ -42,7 +43,7 @@
                                                 </mat-card>
                                             </li>
                                         </ul>
-                                        <a mat-mini-fab routerLink="/exam" *ngIf="allFlag">Take Test</a>
+                                        <a mat-mini-fab routerLink="/exam" *ngIf="allWatch">Take Test</a>
                                     </div>
                                 </div>
                                 <div class="sticky-nav-bar-spacer"></div>

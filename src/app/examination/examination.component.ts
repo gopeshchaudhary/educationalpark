@@ -111,7 +111,6 @@ export class ExaminationComponent implements OnInit {
 
   }
   
-
   submitExam() {
     const examUrl = this._urlmanager.resolveUrl('E', 'PO', 'submitExam');
     const method = 'POST';
