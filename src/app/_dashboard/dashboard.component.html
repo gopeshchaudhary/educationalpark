@@ -4,28 +4,33 @@
 <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help" data-submenu-nav=".nav-tutorials">
     <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help" data-submenu-nav=".nav-tutorials">
         <div class="revealer">
-            <div class="slider">
-                <!-- .tsc-header-wrapper -->
-                <div class="content-wrapper">
-                    <div id="wrapper">
-                        <div class="content">
-                            <!-- ~~ Center  -->
-                            <div class="content-left">
-                                <section *ngIf="firstShowOption">
-                                   <div class="container clearfix">
-                                       <div class="section" *ngFor="let section of sectionName">
-                                          <h3 class="title"><a href="javascript:void(0)" (click)="getDataModule(section.sectionid)"> {{section.name}}</a></h3> 
-                                       </div>
-                                       <!-- <div class="section">
-                                        <h3 class="title"> <a href="javascript:void(0)" (click)="getDataModule('gst')">gst </a> </h3>
-                                       </div> -->
-                                   </div>
-                                </section>
+            <!-- .tsc-header-wrapper -->
 
-                                <div class="navigation-bar-wrapper navigation-bar-camtasia" *ngIf="selectedOption">
-                                    <a href="javascript:void(0)" (click)= "backTo()">Back to Module</a>
-                                    <a mat-mini-fab routerLink="/exam" *ngIf="allWatch" >Take Test {{testmessage}}</a>
-                                    <div *ngFor="let storeArr of storeArrayFull"  class="navigation-bar first-primary">
+            <!-- ~~ Center  -->
+            <section class="innerBanner">
+                <div class="container">
+                    <div class="row">
+                        <h3>Video Learning</h3>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="mainBox">
+                            <div class="moduleBox" *ngIf="firstShowOption">
+                                <div class="col-xs-12 col-md-3 col-sm-3" *ngFor="let section of sectionName">
+                                    <div class="cards">
+                                        <a href="javascript:void(0)" (click)="getDataModule(section.sectionid)"> {{section.name}}</a>
+                                        <h3>Module <i class="material-icons">videocam</i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="moduleBox" *ngIf="selectedOption">
+                                <div>
+                                    <a href="javascript:void(0)" (click)="backTo()">Back to Module</a>
+                                    <a mat-mini-fab routerLink="/exam" *ngIf="allWatch">Take Test {{testmessage}}</a>
+                                    <div *ngFor="let storeArr of storeArrayFull">
                                         <ul id="menu">
                                             <li *ngFor="let item of storeArr">
                                                 <mat-card class="example-card" (click)="openDialog(item.video,item,item.moduleid,item.key)">
@@ -43,30 +48,27 @@
                                                     </div>
                                                 </mat-card>
                                             </li>
-                
+
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="sticky-nav-bar-spacer"></div>
-                                <div class="region two-column primary-grey0" data-id="37269">
-                                    <div id="region-switcher" class="tsc-tab camtasia-theme primary-grey3" data-tabtitles="Getting Started, Reach Higher, Mobile Apps, More Help"
-                                        data-id="34356">
-                                        <section class="region five-column primary-grey3" data-id="34331">
-                                            <div class="section-header ">
-                                                <p class="base1">Start Here</p>
-                                                <p>Save, edit, and file a GST with this series of essential skills and techniques.
-                                                    Or, use offline utility for saving directly to portal.</p>
-                                            </div>
-                                        </section>
-                                        <!-- .region -->
-                                    </div>
-                                    <!-- .column-block-wrapper -->
-                                </div>
                             </div>
+
                         </div>
+
                     </div>
+
+                    <!-- <div class="section">
+                                        <h3 class="title"> <a href="javascript:void(0)" (click)="getDataModule('gst')">gst </a> </h3>
+                                       </div> -->
                 </div>
+            </section>
+
+
+            <div class="sticky-nav-bar-spacer">
+
             </div>
+
         </div>
     </div>
 </div>
