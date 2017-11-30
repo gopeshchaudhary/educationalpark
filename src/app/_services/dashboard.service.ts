@@ -5,29 +5,41 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class ExaminationService {
+export class dashboardService {
     constructor(
         private http: Http,
         private _router: Router
     ) { }
 
-    getExam(moudleid : string) {
-        return this.http.post('/exam/getexam', { moduleid : moudleid })
+    getSectionName(username) {
+        return this.http.post('/profile/sections', { username })
             .map((response: Response) => {
                 // exam successfully fetched
-                
+                // console.log(response);
                 return (response)? response.json() : {};
                 
             });
     }
 
-
-    submitExam(testData) {
-        return this.http.post('/exam/submitexam', { testData : testData })
+    moduleSectionDetail(username, section) {
+        return this.http.post('/profile/dashboard', { username , section })
             .map((response: Response) => {
                 // exam successfully fetched
-                
+                // console.log(response);
                 return (response)? response.json() : {};
+                
+                
+                
+            });
+    }
+
+    checkFlag(username, moduleid, videoid) {
+        return this.http.post('/video/videostatus', { username , moduleid, videoid })
+            .map((response: Response) => {
+                // exam successfully fetched
+                // console.log(response);
+                return (response)? response.json() : {};
+                
                 
                 
             });

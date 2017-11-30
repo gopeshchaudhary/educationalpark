@@ -1,0 +1,39 @@
+<div class="card clearfix top_margin">
+  <h3 class="title">User Profile</h3>
+  <form class="form">
+    <ul>
+      <li>
+          <label>Username</label>
+          <input type="text" class="form-control" disabled="true" placeholder="Username" #usernameLV="ngModel" [(ngModel)]="data.username" name="username"
+              value="">
+          <div *ngIf="usernameLV.invalid && (usernameLV.dirty || usernameLV.touched)">
+              <span class="alertInform" *ngIf="usernameLV.errors.required">
+                  Username is required.
+              </span>
+          </div> 
+      </li>
+      <li>
+        <label for="exampleInputEmail1">Email ID</label>
+        <input type="email" class="form-control" disabled="true"  #emailLV="ngModel" [(ngModel)]="data.email" name="email" value="madhu.gupta@sugaldamani.com" required>
+        <div *ngIf="emailLV.invalid && (emailLV.dirty || emailLV.touched)">
+          <span class="alertInform" *ngIf="emailLV.errors.required">
+            Email is required.
+          </span>
+        </div>
+      </li>
+      <li>
+        <label>Mobile No.</label>
+        <input type="text" class="form-control" disabled="true" #mobileLV="ngModel" [(ngModel)]="data.mobile" name="mobile" placeholder="" value="8860998412"
+          required>
+        <div *ngIf="mobileLV.invalid && (mobileLV.dirty || mobileLV.touched)">
+          <span class="alertInform" *ngIf="mobileLV.errors.required">
+            Mobile Number is required.
+          </span>
+        </div>
+      </li>
+      <!-- <li>
+        <button type="submit" class="submit" (click)="updateProfile()">Update Profile</button>
+      </li> -->
+    </ul>
+  </form>
+</div>

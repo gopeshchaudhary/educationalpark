@@ -21,7 +21,7 @@ import { customHttpProvider } from './_helpers/index';
 import { AuthGuard } from './_guards/index';
 
 // SERVICES USED
-import { AlertService, AuthenticationService, UserService, UrlManagerService, ApiManagerService , ExaminationService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, UrlManagerService, ApiManagerService , ExaminationService, dashboardService } from './_services/index';
 
 // COMPONENTS USED
 import { AppComponent } from './app.component';
@@ -30,17 +30,17 @@ import { LoginComponent } from './login/index';
 import { AlertComponent } from './_directives/index';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { DashboardComponent, DialogVideoComponent } from './_dashboard/index';
+import { HeaderComponent, DialogProfileComponent, DialogResetPassComponent } from './header/index';
+import { DashboardComponent, DialogVideoComponent} from './_dashboard/index';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ExaminationComponent } from './examination/examination.component';
+
 
 // VIDEOANGULAR IMPORTS
 import { VgCoreModule } from 'videogular2/core';
 import { VgControlsModule } from 'videogular2/controls';
 import { VgOverlayPlayModule } from 'videogular2/overlay-play';
 import { VgBufferingModule } from 'videogular2/buffering';
-
 
 // INJECTIONS
 const MODULES = [
@@ -52,20 +52,22 @@ const MODULES = [
 ];
 
 const COMPONENTS = [
-  AppComponent, AlertComponent, HomeComponent, LoginComponent,
-  DashboardComponent, DialogVideoComponent, ForgetPasswordComponent,
-  RegisterComponent, HeaderComponent, FooterComponent, ExaminationComponent
+  AppComponent, AlertComponent, HomeComponent, LoginComponent, RegisterComponent,
+  DashboardComponent, ForgetPasswordComponent, HeaderComponent, FooterComponent,
+  ExaminationComponent, DialogVideoComponent, DialogProfileComponent, DialogResetPassComponent
 ];
 
 const ENTRYCOMPONENTS = [
-  DialogVideoComponent
+  DialogVideoComponent, DialogProfileComponent, DialogResetPassComponent, 
+ 
 ];
 const SINGLETONSERVICES = [
-  customHttpProvider, AuthGuard, AlertService, AuthenticationService, UserService, UrlManagerService, ApiManagerService, ExaminationService
+  customHttpProvider, AuthGuard, AlertService, AuthenticationService, 
+  UserService, UrlManagerService, ApiManagerService, ExaminationService, dashboardService
 ];
 
 @NgModule({
-  declarations: [...COMPONENTS ],
+  declarations: [...COMPONENTS],
   entryComponents: [...ENTRYCOMPONENTS],
   imports: [...MODULES],
   providers: [...SINGLETONSERVICES],

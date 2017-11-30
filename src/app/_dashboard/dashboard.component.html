@@ -11,58 +11,31 @@
                         <div class="content">
                             <!-- ~~ Center  -->
                             <div class="content-left">
-                                <section>
-                                    <div id="wistia-hero-37884" class="hero hero-solutions replacement-container">
-                                        <div id="replacement-content-37884" class="hide" data-video-api="wistia">
-                                            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
-                                                <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-                                                    <div class="wistia_embed wistia_async_a38vx5vv2k videoFoam=true" style="height:100%;width:100%">&nbsp;
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="img-wrapper img-wrapper-center-middle" style="background-image:url('/assets/img/main-website-frontview1.png');">
-
-                                        </div> -->
-                                        <div class="video-star-hero">
-                                            <a class="replacement-video-trigger video-trigger" data-video-content="replacement-content-37884" data-size="" href="#">
-                                                <span class="play-button"></span>
-                                            </a>
-                                        </div>
-                                        <div class="hero-table">
-                                            <div class="bottom-table-text">
-                                                <div class="text-center">
-                                                    <span class="play-button"></span>
-                                                </div>
-                                                <div class="headline-wrapper">
-                                                    <h1>How to learn from Training Video</h1>
-                                                </div>
-
-                                                <div class="copy-wrapper">
-                                                    <p>Learn how easy it can be to create an office training video with your
-                                                        smartphone. We take you through the process of picking a topic, preparing
-                                                        a storyboard and script, staging your scene, recording, and then
-                                                        editing in Camtasia.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <section *ngIf="firstShowOption">
+                                   <div class="container clearfix">
+                                       <div class="section" *ngFor="let section of sectionName">
+                                          <h3 class="title"><a href="javascript:void(0)" (click)="getDataModule(section.sectionid)"> {{section.name}}</a></h3> 
+                                       </div>
+                                       <!-- <div class="section">
+                                        <h3 class="title"> <a href="javascript:void(0)" (click)="getDataModule('gst')">gst </a> </h3>
+                                       </div> -->
+                                   </div>
                                 </section>
 
-                                <div class="navigation-bar-wrapper navigation-bar-camtasia">
+                                <div class="navigation-bar-wrapper navigation-bar-camtasia" *ngIf="selectedOption">
+                                    <a href="javascript:void(0)" (click)= "backTo()">Back to Module</a>
                                     <div class="navigation-bar first-primary">
                                         <ul id="menu">
-                                            <li *ngFor="let item of imageUrlObject">
-                                                <mat-card class="example-card" (click)="openDialog(item)">
+                                            <li *ngFor="let item of storeArray">
+                                                <mat-card class="example-card" (click)="openDialog(item.key,item)">
                                                     <mat-card-header>
                                                         <div mat-card-avatar class="example-header-image">
                                                         </div>
                                                         <mat-card-title>Gst Videos</mat-card-title>
                                                         <mat-card-subtitle>Training</mat-card-subtitle>
                                                     </mat-card-header>
-                                                    <img mat-card-image src="{{item.imageSrc}}">
-                                                    <div *ngIf="item.showFlag">
+                                                    <img mat-card-image src="../../assets/img/gstTraining.png">
+                                                    <div *ngIf="item.video.status != 'notwatched'">
                                                         <mat-card-content>
                                                             <mat-icon class="icon_mod">done</mat-icon>
                                                         </mat-card-content>
@@ -70,21 +43,16 @@
                                                 </mat-card>
                                             </li>
                                         </ul>
-                                        <a mat-mini-fab  routerLink="/exam" *ngIf="allFlag">Take Test</a>
+                                        <a mat-mini-fab routerLink="/exam" *ngIf="allWatch">Take Test</a>
                                     </div>
                                 </div>
                                 <div class="sticky-nav-bar-spacer"></div>
                                 <div class="region two-column primary-grey0" data-id="37269">
-
                                     <div id="region-switcher" class="tsc-tab camtasia-theme primary-grey3" data-tabtitles="Getting Started, Reach Higher, Mobile Apps, More Help"
                                         data-id="34356">
                                         <section class="region five-column primary-grey3" data-id="34331">
-
-
                                             <div class="section-header ">
                                                 <p class="base1">Start Here</p>
-
-
                                                 <p>Save, edit, and file a GST with this series of essential skills and techniques.
                                                     Or, use offline utility for saving directly to portal.</p>
                                             </div>
@@ -100,3 +68,4 @@
             </div>
         </div>
     </div>
+</div>
