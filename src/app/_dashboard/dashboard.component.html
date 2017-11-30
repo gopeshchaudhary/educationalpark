@@ -24,17 +24,18 @@
 
                                 <div class="navigation-bar-wrapper navigation-bar-camtasia" *ngIf="selectedOption">
                                     <a href="javascript:void(0)" (click)= "backTo()">Back to Module</a>
-                                    <div class="navigation-bar first-primary">
+                                    <a mat-mini-fab routerLink="/exam" *ngIf="allWatch" >Take Test {{testmessage}}</a>
+                                    <div *ngFor="let storeArr of storeArrayFull"  class="navigation-bar first-primary">
                                         <ul id="menu">
-                                            <li *ngFor="let item of storeArray">
-                                                <mat-card class="example-card" (click)="openDialog(item.key,item)">
+                                            <li *ngFor="let item of storeArr">
+                                                <mat-card class="example-card" (click)="openDialog(item.video,item,item.moduleid,item.key)">
                                                     <mat-card-header>
                                                         <div mat-card-avatar class="example-header-image">
                                                         </div>
                                                         <mat-card-title>Gst Videos</mat-card-title>
                                                         <mat-card-subtitle>Training</mat-card-subtitle>
                                                     </mat-card-header>
-                                                    <img mat-card-image src="../../assets/img/gstTraining.png">
+                                                    <img mat-card-image src="assets/img/gstTraining.png">
                                                     <div *ngIf="item.video.status != 'notwatched'">
                                                         <mat-card-content>
                                                             <mat-icon class="icon_mod">done</mat-icon>
@@ -42,8 +43,8 @@
                                                     </div>
                                                 </mat-card>
                                             </li>
+                
                                         </ul>
-                                        <a mat-mini-fab routerLink="/exam" *ngIf="allWatch">Take Test</a>
                                     </div>
                                 </div>
                                 <div class="sticky-nav-bar-spacer"></div>
