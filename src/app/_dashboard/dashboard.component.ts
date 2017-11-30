@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
   name: string;
   public showFlag: boolean;
   public allWatch: boolean;
+  public testmessage: string;
   headertype: 'private';
   public imageUrlObject = [];
   private count = 0;
@@ -45,11 +46,11 @@ export class DashboardComponent implements OnInit {
   public showVideo;
   public moduleVideo;
   public begin = 0;
-  public vList;
   public moduleid;
   public storeArray = [];
+  public storeArrayFull = [];
   public statusCheckVideo;
-  
+
 
   ngOnInit() {
     this.allWatch = false;
@@ -57,21 +58,19 @@ export class DashboardComponent implements OnInit {
     this.userName = this.userService.getUsername();
     // load module
     this._dashboardCallService.getSectionName(this.userName).subscribe(res => {
-      console.log(res);
       this.sectionName = res;
 
     },
-    error => {
-      console.log(error);
-      this.alertService.error(error);
-      
-    }
-  
-  );
+      error => {
+        this.alertService.error(error);
 
+      }
 
+    );
   }
-
+  printmessage(moduleid) {
+    this.testmessage = "For Module " + moduleid + " ."
+  }
 
   login() {
     this.loading = true;
@@ -90,76 +89,68 @@ export class DashboardComponent implements OnInit {
   getDataModule(option) {
     this.firstShowOption = false; // hide option box
     this.selectedOption = true; // show videos box
-
     this._dashboardCallService.moduleSectionDetail(this.userName, option).subscribe(
 
       result => {
         // Handle result
-        console.log(result);
         this.showVideo = result;
-        this.moduleRender(this.begin);
+        let totalmodules = result.modules;
+        let modulecount = totalmodules.length;
+        this.moduleRender(totalmodules);
       },
       error => {
-        console.log(error);
         this.alertService.error(error);
 
       }
     );
   }
 
-  moduleRender(begin) {
-    this.allWatch = false;
-    this.moduleVideo = this.showVideo.modules;
-    this.vList = this.moduleVideo[begin].videolist;
-    this.moduleid = this.moduleVideo[begin].moduleid;
-
-    for (var key in this.vList) {
-      
-      if (this.vList.hasOwnProperty(key)) {
-        // console.log(key);
-
-        this.storeArray.push({key:key,video:this.vList[key]});
-      }
-    }
-    console.log(this.storeArray);
-  }
-  
-
-  openDialog(selectedVideo: any,itemData:any): void {
-    console.log(selectedVideo,itemData);
-    this._dashboardCallService.checkFlag(this.userName, this.moduleid, parseInt(selectedVideo)).subscribe(res => {
-      console.log(res);
-      this.statusCheckVideo = res;
-      if(res.videoStatus==='updated'){
-        itemData.video.status = 'watched';
-      }
-      res.allVideo === "true";
-      if(res.allVideo === "true"){
+  moduleRender(totalmodules) {
+    this.storeArrayFull = [];
+    this.testmessage = '';
+    totalmodules.forEach((currmodule, index) => {
+      let tempArray = [];
+      let vList = currmodule.videolist;
+      let moduleid = currmodule.moduleid;
+      if (currmodule.takeexam == "true") {
         this.allWatch = true;
+        this.printmessage(moduleid);
       }
+      for (var key in vList) {
+        if (vList.hasOwnProperty(key)) {
+          let videoobj = { key: key, moduleid: moduleid, video: vList[key] }
+          tempArray.push(videoobj);
+        }
+      }
+      this.storeArrayFull.push(tempArray);
+    })
+  }
 
-      
-      // videoStatus
 
-    },
-    error => {
-      console.log(error);
-      this.alertService.error(error);
-      
+  openDialog(selectedVideo: any, itemData: any, moduleid: any, videoid: any): void {
+    if (selectedVideo.status === 'notwatched') {
+      this._dashboardCallService.checkFlag(this.userName, moduleid, parseInt(videoid)).subscribe(res => {
+        this.statusCheckVideo = res;
+        if (res.videoStatus === 'updated') {
+          itemData.video.status = 'watched';
+        }
+        res.allVideo === "true";
+        if (res.allVideo === "true") {
+          this.allWatch = true;
+          this.printmessage(moduleid);
+        }
+      },
+        error => {
+          this.alertService.error(error);
+        }
+      );
     }
-  );
-
-    // this.count++;
-    // this.allFlag = (this.count === this.imageUrlObject.length) ? true : false;
     const dialogRef = this.dialog.open(DialogVideoComponent, {
       width: '800px',
       data: selectedVideo
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
-    //  selectedVideo.video.status = this.statusCheckVideo.videoStatus;
-      console.log('The dialog was closed');
     });
   }
 
@@ -185,6 +176,4 @@ export class DialogVideoComponent {
     this.dialogRef.close();
   }
 }
-
-
 
