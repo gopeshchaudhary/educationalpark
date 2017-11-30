@@ -21,7 +21,7 @@ import { customHttpProvider } from './_helpers/index';
 import { AuthGuard } from './_guards/index';
 
 // SERVICES USED
-import { AlertService, AuthenticationService, UserService, UrlManagerService, ApiManagerService , ExaminationService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, UrlManagerService, ApiManagerService , ExaminationService, dashboardService } from './_services/index';
 
 // COMPONENTS USED
 import { AppComponent } from './app.component';
@@ -63,7 +63,7 @@ const ENTRYCOMPONENTS = [
 ];
 const SINGLETONSERVICES = [
   customHttpProvider, AuthGuard, AlertService, AuthenticationService, 
-  UserService, UrlManagerService, ApiManagerService, ExaminationService
+  UserService, UrlManagerService, ApiManagerService, ExaminationService, dashboardService
 ];
 
 @NgModule({
