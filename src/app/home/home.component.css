@@ -1,0 +1,131 @@
+.container_content{
+    background: url("../../assets/img/header_back1.jpg");
+    /* height: 150px; */
+    float: left;
+    width: 100%;
+}
+.bannerbox{
+    position: fixed;
+    width: 100%;
+}
+.main {
+    padding: 3.5%;
+    margin-top: 58px;
+    color: white;
+}
+.wrap{
+    padding-left: 15%;
+}
+.btn_new{
+    margin-top: 17px;
+    color: #ea6e38;
+    background: white;
+    border-radius: 25px;
+    padding: 9px 31px;
+    font-weight: 600;
+}
+.font1{
+    font-family: arial;
+    font-size: 28px;
+}
+.font2{
+    font-family: arial;
+    font-size: 24px;
+}
+.middle{
+    background: #ded9d9;
+    padding-bottom: 250px;
+}
+.middle_box{
+    background: white;
+    width: 25%;
+    float: left;
+    margin: 10px .5%;
+    border: 1px solid #1d1b1b;
+    text-align: center;
+}
+.icon_gst{
+    background: #ede4e4;
+    width: 34%;
+    border-radius: 50px;
+    margin: 11px auto;
+    padding: 12px;
+}
+.icon_gst img{
+    width: 50px;
+}
+.box_title{
+    font-weight: 600;
+    color: black;
+    font-size: 16px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.gst_content{
+    padding:7px;
+}
+.btn_test{
+    background-color: #BE1F2D;
+    color: white;
+    padding: 7px 9px;
+    border-radius: 20px;
+}
+.footer{
+	background: rgb(46, 48, 50);
+	color: #c5c5c5;
+	text-align: center;
+	font-size: 12px;
+	line-height: 30px;
+	padding: 1px;
+	/* position: fixed; */
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+.footbox{
+    background: #bbbbbb;
+    width:100%;
+}
+.box{
+    width: 15%;
+    margin: 2% 3%;
+    float: left;
+    color: #635d5d;
+}
+.full_width{
+    width:100%;
+    padding:1px;
+    background: white;
+}
+.icon{
+    background: #BE1F2D;
+    width: 30%;
+    float: left;
+    padding: 20px;
+}
+.icon img{
+    width: 25px;
+}
+.box_content{
+    width: 70%;
+    float: left;
+    padding: 15px;
+}
+
+.box ul li{
+    padding-top: 8px;
+    
+}
+.top_padding{
+    padding-top: 70px;
+}
+.mail_btn{
+    background-color: #BE1F2D;
+    color: white;
+    padding: 7px 9px;
+    border-radius: 8px;
+}
+.margin_left{
+    margin-left: 22%;
+}

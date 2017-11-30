@@ -1,38 +1,42 @@
-<app-header></app-header>
-<div class="card">
-    <h1 class="title">Login</h1>
-    <form class="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-        <ul>
-            <li>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" [(ngModel)]="model.username" #username="ngModel" required="required" />
+<div class="img">
+    <div class="header_color">
+        <app-header [header]="headertype"></app-header>
+    </div>
+    <div class="card width420">
+        <h1 class="title">Login</h1>
+        <form class="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+            <ul>
+                <li>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" [(ngModel)]="model.username" #username="ngModel" required="required" />
 
-                <div *ngIf="username.invalid && (username.dirty || username.touched)">
-                    <span class="alertInform" *ngIf="username.errors.required">
-                        Username is required.
-                    </span>
-                </div>
-            </li>
-            <li>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" [(ngModel)]="model.password" #password="ngModel" required="required"
-                />
-                <div *ngIf="password.invalid && (password.dirty || password.touched)">
-                    <span class="alertInform" *ngIf="password.errors.required">
-                        Password is required.
-                    </span>
-                </div>
-            </li>
-            <li>
-                <a href="#">
-                    <button type="submit" (click)="login()" class="submit">SUBMIT</button>
-                </a>
-            </li>
-        </ul>
-    </form>
-    <h3 class="foot">
-            <a class="highlight1">Forgot password?</a>
-            <a class="highlight2" routerLink="/register" routerLinkActive="active">Register Here</a>
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <span class="alertInform" *ngIf="username.errors.required">
+                            Username is required.
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" [(ngModel)]="model.password" #password="ngModel" required="required"
+                    />
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <span class="alertInform" *ngIf="password.errors.required">
+                            Password is required.
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <button type="submit" (click)="login()" class="submit">SUBMIT</button>
+                    </a>
+                </li>
+            </ul>
+        </form>
+        <h3 class="foot">
+            <a class="label_left" routerLink="/forgetPass">Forgot password?</a>
+            <a class="label_right" routerLink="/register" routerLinkActive="active">Register Here</a>
         </h3>
+    </div>
 </div>
 <app-footer></app-footer>

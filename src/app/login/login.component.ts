@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   returnUrl: string;
   loading: boolean;
+  headertype = "public";
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
     this.loading = false;
-
+    
     // reset login status
     this.authenticationService.logout();
 
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
       data => {
         this.alertService.success("Login Successfully");
-        this.router.navigate([this.returnUrl]);
+        this.router.navigate(['/dashboard']);
       },
       error => {
         this.alertService.error(error);

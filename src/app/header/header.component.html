@@ -1,32 +1,86 @@
-<div class="header clearfix">
-  <div class="head-wrapper clearfix">
-    <div class="logo">
-      <a class="" href="#page-top">
-        <img class="logo-img" src="/../../assets/img/logo_3.png" alt="Logo">
-      </a>
+<div *ngIf="public; else privateheader" class="clearfix header">
+    <div id="nav" class="clearfix ">
+        <div class="container">
+            <div class="logo">
+                <a class="" href="#page-top">
+                    <img class="logo-img" src="/../../assets/img/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="component">
+                <ul class="">
+                    <li class="">
+                        <a class="" href="#home">Home</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#about">About</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#features">Features</a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#contact">Contact us</a>
+                    </li>
+                    <li class="">
+                        <a class="" routerLink="/login" routerLinkActive="active">Login</a>
+                    </li>
+                    <li class="act">
+                        <a class="" routerLink="/register" routerLinkActive="active">
+                            <span class="color">Enroll Here</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </div>
-    <div class="component">
-        <ul class="">
-          <li class="">
-            <a class="" href="#about">About</a>
-          </li>
-          <li class="">
-            <a class="" href="#services">Services</a>
-          </li>
-          <li class="">
-            <a class="" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="">
-            <a class="" href="#contact">Contact</a>
-          </li>
-          <li class="">
-            <a class="" routerLink="/login" routerLinkActive="active">Login</a>
-          </li>
-          <li class="">
-            <a class="" routerLink="/register" routerLinkActive="active">Registration</a>
-          </li>
-        </ul>
-      </div>
-  </div>
 </div>
 
+<ng-template #privateheader>
+    <div class="header clearfix">
+        <div class="head-wrapper clearfix">
+            <header class="tsc-header no-bullets">
+                <div class="logo">
+                    <a [routerLink]="['/dashboard']" href="#page-top">
+                        <img class="logo-img" src="/../../assets/img/logo.png" alt="Logo">
+                    </a>
+                </div>
+                <div class="global-nav-wrapper">
+                    <ul class="supplemental-buttons">
+                        <li>
+                            <a class="global-nav-link contact-us" [routerLink]="" title="Contact Us">
+                                <i class="navmenu-icon glyph-nav-phone"></i>
+                                <span>Contact Us</span>
+                            </a>
+                        </li>
+                        <li class="profile">
+                            <ul>
+                                <li>
+                                    <a> <img src="/../../assets/img/user.png" alt="Profile" title="Profile"></a>
+                                    <ul>
+                                        <li><a (click)="openProfileDialog(item)">Profile</a></li>
+                                        <li><a (click)="openResetPassDialog(item)">Change Password</a></li>
+                                        <li><a [routerLink]="['/login']"> Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    <!-- .supplemental-buttons -->
+                </div>
+                <form class="search">
+                    <div class="search-input-wrapper">
+                        <label for="main_google_query">Search EduPark.com</label>
+                        <input type="search" class="search-input" name="q" id="main_google_query" placeholder="Search Edupark.com" />
+                        <button type="submit" class="search-submit">
+                            <span>Search Educational Portal</span>
+                        </button>
+                    </div>
+                    <button type="button" class="search-cancel">
+                        <span>Cancel</span>
+                    </button>
+                </form>
+            </header>
+        </div>
+    </div>
+</ng-template>
