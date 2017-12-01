@@ -69,20 +69,7 @@ export class DashboardComponent implements OnInit {
     );
   }
   printmessage(moduleid) {
-    this.testmessage = "For Module " + moduleid + " ."
-  }
-
-  login() {
-    this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
-      .subscribe(
-      data => {
-        this.router.navigate([this.returnUrl]);
-      },
-      error => {
-        this.alertService.error(error);
-        this.loading = false;
-      });
+    this.testmessage =  moduleid + " ."
   }
 
   // Click for perticular module
@@ -112,8 +99,9 @@ export class DashboardComponent implements OnInit {
       let tempArray = [];
       let vList = currmodule.videolist;
       let moduleid = currmodule.moduleid;
-      if (currmodule.takeexam == "true") {
+      if (currmodule.taketest == "true") {
         this.allWatch = true;
+        this.moduleid = moduleid;
         this.printmessage(moduleid);
       }
       for (var key in vList) {

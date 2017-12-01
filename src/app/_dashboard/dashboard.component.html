@@ -28,10 +28,16 @@
                             </div>
                             <div class="moduleBox" *ngIf="selectedOption">
                                 <div>
-                                    <a href="javascript:void(0)" (click)="backTo()">Back to Module</a>
-                                    <a mat-mini-fab routerLink="/exam" *ngIf="allWatch">Take Test {{testmessage}}</a>
-                                    <div *ngFor="let storeArr of storeArrayFull">
-                                        <ul id="menu">
+                                    <!-- <a href="javascript:void(0)" >Back to Module</a>
+                                    <a mat-mini-fab >Take Test {{testmessage}}</a> -->
+                                    <button mat-button color="primary" (click)="backTo()">Back to Module</button>
+                                    <button mat-raised-button color="primary" [routerLink]="['/exam',{'moduleid':moduleid}]" *ngIf="allWatch" class="pull-right">Take test</button>
+                                    <div class="moduleBox clearfix" *ngFor="let storeArr of storeArrayFull">
+                                        
+                                        <div class="page-header">
+                                                <h3>Module Name: {{testmessage}}</h3>    
+                                              </div>
+                                        <ul id="menu" class="modList clearfix">
                                             <li *ngFor="let item of storeArr">
                                                 <mat-card class="example-card" (click)="openDialog(item.video,item,item.moduleid,item.key)">
                                                     <mat-card-header>
