@@ -47,6 +47,15 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+a,
+input[type="submit"] {
+    outline: none;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+}
+
 /*End-reset for older browsers*/
 
 /* start editing from here */
@@ -167,4 +176,53 @@ span.alertInform {
 
 .top_margin{
     margin-top: 2px;
+}
+
+
+
+/* 30 nov css added dashboard */
+
+.innerBanner{
+    background: url(assets/img/header_back2.jpg) no-repeat top left;
+    height: 150px;
+    width: 100%;
+}
+.innerBanner h3{
+    color: #fff;
+    line-height: 150px;
+    font-size: 22px;
+    text-transform: capitalize;
+}
+
+.mainBox{
+    margin-top: 20px;
+}
+.cards {
+    background: #ececec;
+    text-align: center;
+    box-shadow: 1px 2px 3px 1px #00000052;
+}
+.cards a {
+    text-align: center;
+    color: #fff;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    line-height: 80px;
+    font-size: 20px;
+}
+.cards a:hover{ text-decoration: none;     color: #3cb1cb;}
+.cards h3 {
+    background: #417ab0;
+    /* background: linear-gradient(-141deg, #EE7752, #E73C7E, #23a6d5, #23d5ab); */
+    background-size: 400% 400%;
+    box-shadow: 0px 0px 2px 0px #000;
+    padding: 13px 20px;
+    color: #fff;
+    text-align: left;
+}
+.cards .material-icons{
+    float: right;
+    font-size: 30px;
+    line-height: 20px;
 }
