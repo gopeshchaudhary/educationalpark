@@ -75,6 +75,9 @@ button, input, optgroup, select, textarea {
 a:hover{
     text-decoration: none;
 }
+a:active, a:hover, button:active, button:hover {
+    text-decoration: none;
+}
 /*----container box css---*/
 .img{
     background: url("/assets/img/background.jpg") center top; 
