@@ -201,11 +201,9 @@ span.alertInform {
     margin-top: 20px;
 }
 .cards {
-    
-    background: #f1bf26;
+    background: #ececec;
     text-align: center;
-    box-shadow: 0px 0px 2px 1px #00000029;
-
+    box-shadow: 1px 2px 3px 1px #00000052;
 }
 .cards a {
     text-align: center;
@@ -218,8 +216,8 @@ span.alertInform {
 }
 .cards a:hover{ text-decoration: none;     color: #3cb1cb;}
 .cards h3 {
-    /* background: #f1bf26; */
-    background: linear-gradient(-141deg, #EE7752, #E73C7E, #23a6d5, #23d5ab);
+    background: #417ab0;
+    /* background: linear-gradient(-141deg, #EE7752, #E73C7E, #23a6d5, #23d5ab); */
     background-size: 400% 400%;
     box-shadow: 0px 0px 2px 0px #000;
     padding: 13px 20px;
