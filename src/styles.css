@@ -198,10 +198,9 @@ span.alertInform {
     margin-top: 20px;
 }
 .cards {
-    
-    background: #e4e4e4;
+    background: #ececec;
     text-align: center;
-    box-shadow: 2px 2px 5px 2px #00000052;
+    box-shadow: 1px 2px 3px 1px #00000052;
 }
 .cards a {
     text-align: center;
