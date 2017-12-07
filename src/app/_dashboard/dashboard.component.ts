@@ -4,7 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { AlertService, AuthenticationService, UserService } from '../_services/index';
+import { AlertService, AuthenticationService, UserService, dashboardService } from '../_services/index';
+
+
 
 declare var $: any;
 @Component({
@@ -20,7 +22,8 @@ export class DashboardComponent implements OnInit {
   animal: string;
   name: string;
   public showFlag: boolean;
-  public allFlag: boolean;
+  public allWatch: boolean;
+  public testmessage: string;
   headertype: 'private';
   public imageUrlObject = [];
   private count = 0;
@@ -31,56 +34,122 @@ export class DashboardComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private userService: UserService,
     private dialog: MatDialog,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    private _dashboardCallService: dashboardService
+  ) { }
+
+  // selected option
+  public firstShowOption;
+  public selectedOption;
+  private userName;
+  public sectionName: any;
+  public showVideo;
+  public moduleVideo;
+  public begin = 0;
+  public moduleid;
+  public storeArray = [];
+  public storeArrayFull = [];
+  public statusCheckVideo;
+
 
   ngOnInit() {
-    this.imageUrlObject = [{
-      url: 'http://ppwww.filegstnow.com/GST_TRAINING_GSTR1.mp4',
-      title: 'GST Video',
-      showFlag: false,
-      imageSrc: '../../assets/img/gstTraining.png'
+    this.allWatch = false;
+    this.firstShowOption = true;
+    this.userName = this.userService.getUsername();
+    // load module
+    this._dashboardCallService.getSectionName(this.userName).subscribe(res => {
+      this.sectionName = res;
+
     },
-    {
-      url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-transitions1x1.png',
-      title: 'Gst video 2 ',
-      showFlag: false,
-      imageSrc: '../../assets/img/gst2Training.png'
-    },
-    {
-      url: 'https://assets.techsmith.com/Images/content/ua-tutorials-camtasia-9-3/hotshot-animations1x1.png',
-      title: 'Gst Video 3',
-      showFlag: false,
-      imageSrc: '../../assets/img/gst2Training.png'
-    }
-    ];
+      error => {
+        this.alertService.error(error);
+
+      }
+
+    );
+  }
+  printmessage(moduleid) {
+    this.testmessage =  moduleid + " ."
   }
 
-  openDialog(selectedVideo: any): void {
-    selectedVideo.showFlag = true;
-    this.count++;
-    this.allFlag = (this.count === this.imageUrlObject.length) ? true : false;
+  // Click for perticular module
+  getDataModule(option) {
+    this.firstShowOption = false; // hide option box
+    this.selectedOption = true; // show videos box
+    this._dashboardCallService.moduleSectionDetail(this.userName, option).subscribe(
+
+      result => {
+        // Handle result
+        this.showVideo = result;
+        let totalmodules = result.modules;
+        let modulecount = totalmodules.length;
+        this.moduleRender(totalmodules);
+      },
+      error => {
+        this.alertService.error(error);
+
+      }
+    );
+  }
+
+  moduleRender(totalmodules) {
+    this.storeArrayFull = [];
+    this.testmessage = '';
+    totalmodules.forEach((currmodule, index) => {
+      let tempArray = [];
+      let vList = currmodule.videolist;
+      let moduleid = currmodule.moduleid;
+      if (currmodule.taketest == "true") {
+        this.allWatch = true;
+        this.moduleid = moduleid;
+        this.printmessage(moduleid);
+      }
+      for (var key in vList) {
+        if (vList.hasOwnProperty(key)) {
+          let videoobj = { key: key, moduleid: moduleid, video: vList[key] }
+          tempArray.push(videoobj);
+        }
+      }
+      this.storeArrayFull.push(tempArray);
+    })
+  }
+
+
+  openDialog(selectedVideo: any, itemData: any, moduleid: any, videoid: any): void {
+    if (selectedVideo.status === 'notwatched') {
+      this._dashboardCallService.checkFlag(this.userName, moduleid, parseInt(videoid)).subscribe(res => {
+        this.statusCheckVideo = res;
+        if (res.videoStatus === 'updated') {
+          itemData.video.status = 'watched';
+        }
+        res.allVideo === "true";
+        if (res.allVideo === "true") {
+          this.allWatch = true;
+          this.printmessage(moduleid);
+        }
+      },
+        error => {
+          this.alertService.error(error);
+        }
+      );
+    }
     const dialogRef = this.dialog.open(DialogVideoComponent, {
       width: '800px',
       data: selectedVideo
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
-  login() {
-    this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
-      .subscribe(
-      data => {
-        this.router.navigate([this.returnUrl]);
-      },
-      error => {
-        this.alertService.error(error);
-        this.loading = false;
-      });
+  // Back to module
+  backTo() {
+    this.storeArray = [];
+    this.firstShowOption = true; // hide option box
+    this.selectedOption = false; // show videos box
   }
+
+
 }
 //open dialouge
 @Component({
@@ -95,3 +164,4 @@ export class DialogVideoComponent {
     this.dialogRef.close();
   }
 }
+

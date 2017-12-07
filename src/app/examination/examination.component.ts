@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UrlManagerService } from '../_services/url-manager.service';
 import { ApiManagerService } from '../_services/api-manager.service';
-import { AlertService, ExaminationService } from '../_services/index';
+import { AlertService, ExaminationService, UserService } from '../_services/index';
+
 
 
 @Component({
@@ -29,13 +31,19 @@ export class ExaminationComponent implements OnInit {
   public showResult;
   public flagResult : boolean;
   public flagTest : boolean;
+  private userName;
 
-  constructor(private _examService: ExaminationService, private _urlmanager: UrlManagerService, private _httpServiceObj: ApiManagerService, private alertService: AlertService) { }
+  constructor(private _route:ActivatedRoute , private _examService: ExaminationService, private _urlmanager: UrlManagerService, private _httpServiceObj: ApiManagerService, private alertService: AlertService, private userService: UserService) { }
 
   ngOnInit() {
+    this.userName = this.userService.getUsername();
+
+    this._route.params.subscribe(params => {
+      this.moduleid = params['moduleid'];
+    })
     this.flagTest = true;
 
-    this.moduleid = 'mod1';
+    console.log('SUBMITTING TEST FOR ' , this.moduleid);
     this._examService.getExam(this.moduleid).subscribe(examObj => {
       examObj = examObj[0];
       if (this.moduleid === examObj.moduleid) {
@@ -89,7 +97,8 @@ export class ExaminationComponent implements OnInit {
     this.answerArray[storeObj.id - 1] = (storeObj);
     this.sendData = {
       'moduleid': this.moduleid,
-      'answerSheets': this.answerArray
+      'answerSheets': this.answerArray,
+      'username' : this.userName
     };
     this._examService.submitExam(this.sendData).subscribe(
       
@@ -111,7 +120,6 @@ export class ExaminationComponent implements OnInit {
 
   }
   
-
   submitExam() {
     const examUrl = this._urlmanager.resolveUrl('E', 'PO', 'submitExam');
     const method = 'POST';

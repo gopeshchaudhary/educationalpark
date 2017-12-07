@@ -74,4 +74,12 @@ export class UserService {
                 return mail;
             });
     }
+    
+    // get username for getting profile
+    getUsername() {
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser && currentUser.username) {
+            return currentUser.username;
+        }
+    }
 }

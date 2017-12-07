@@ -4,67 +4,77 @@
 <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help" data-submenu-nav=".nav-tutorials">
     <div class="responsive tophero bottomhero no-js smooth-scroll-enabled" data-menu-nav=".nav-help" data-submenu-nav=".nav-tutorials">
         <div class="revealer">
-            <div class="slider">
-                <!-- .tsc-header-wrapper -->
-                <div class="content-wrapper">
-                    <div id="wrapper">
-                        <div class="content">
-                            <!-- ~~ Center  -->
-                            <div class="content-left">
-                                <section>
-                                   <div class="container clearfix">
-                                       <div class="section">
-                                          <h3 class="title">Accounting</h3> 
-                                       </div>
-                                       <div class="section">
-                                        <h3 class="title"> gst</h3>
-                                       </div>
-                                   </div>
-                                </section>
+            <!-- .tsc-header-wrapper -->
 
-                                <div class="navigation-bar-wrapper navigation-bar-camtasia">
-                                    <div class="navigation-bar first-primary">
-                                        <ul id="menu">
-                                            <li *ngFor="let item of imageUrlObject">
-                                                <mat-card class="example-card" (click)="openDialog(item)">
+            <!-- ~~ Center  -->
+            <section class="innerBanner">
+                <div class="container">
+                    <div class="row">
+                        <h3>Video Learning</h3>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="mainBox">
+                            <div class="moduleBox" *ngIf="firstShowOption">
+                                <div class="col-xs-12 col-md-3 col-sm-3" *ngFor="let section of sectionName">
+                                    <div class="cards">
+                                        <a href="javascript:void(0)" (click)="getDataModule(section.sectionid)"> {{section.name}}</a>
+                                        <h3>Module <i class="material-icons">videocam</i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="moduleBox" *ngIf="selectedOption">
+                                <div>
+                                    <!-- <a href="javascript:void(0)" >Back to Module</a>
+                                    <a mat-mini-fab >Take Test {{testmessage}}</a> -->
+                                    <button mat-button color="primary" (click)="backTo()">Back to Module</button>
+                                    <button mat-raised-button color="primary" [routerLink]="['/exam',{'moduleid':moduleid}]" *ngIf="allWatch" class="pull-right">Take test</button>
+                                    <div class="moduleBox clearfix" *ngFor="let storeArr of storeArrayFull">
+                                        
+                                        <div class="page-header">
+                                                <h3>Module Name: {{testmessage}}</h3>    
+                                              </div>
+                                        <ul id="menu" class="modList clearfix">
+                                            <li *ngFor="let item of storeArr">
+                                                <mat-card class="example-card" (click)="openDialog(item.video,item,item.moduleid,item.key)">
                                                     <mat-card-header>
                                                         <div mat-card-avatar class="example-header-image">
                                                         </div>
                                                         <mat-card-title>Gst Videos</mat-card-title>
                                                         <mat-card-subtitle>Training</mat-card-subtitle>
                                                     </mat-card-header>
-                                                    <img mat-card-image src="{{item.imageSrc}}">
-                                                    <div *ngIf="item.showFlag">
+                                                    <img mat-card-image src="assets/img/gstTraining.png">
+                                                    <div *ngIf="item.video.status != 'notwatched'">
                                                         <mat-card-content>
                                                             <mat-icon class="icon_mod">done</mat-icon>
                                                         </mat-card-content>
                                                     </div>
                                                 </mat-card>
                                             </li>
+
                                         </ul>
-                                        <a mat-mini-fab routerLink="/exam" *ngIf="allFlag">Take Test</a>
                                     </div>
-                                </div>
-                                <div class="sticky-nav-bar-spacer"></div>
-                                <div class="region two-column primary-grey0" data-id="37269">
-                                    <div id="region-switcher" class="tsc-tab camtasia-theme primary-grey3" data-tabtitles="Getting Started, Reach Higher, Mobile Apps, More Help"
-                                        data-id="34356">
-                                        <section class="region five-column primary-grey3" data-id="34331">
-                                            <div class="section-header ">
-                                                <p class="base1">Start Here</p>
-                                                <p>Save, edit, and file a GST with this series of essential skills and techniques.
-                                                    Or, use offline utility for saving directly to portal.</p>
-                                            </div>
-                                        </section>
-                                        <!-- .region -->
-                                    </div>
-                                    <!-- .column-block-wrapper -->
                                 </div>
                             </div>
+
                         </div>
+
                     </div>
+
+                    <!-- <div class="section">
+                                        <h3 class="title"> <a href="javascript:void(0)" (click)="getDataModule('gst')">gst </a> </h3>
+                                       </div> -->
                 </div>
+            </section>
+
+
+            <div class="sticky-nav-bar-spacer">
+
             </div>
+
         </div>
     </div>
 </div>

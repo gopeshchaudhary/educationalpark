@@ -76,7 +76,8 @@ export class RegisterComponent implements OnInit {
       response => {
         if (response.emailsend == "success") {
           this.alertService.success("You have succesfully registered");
-          this.mobileOtpVerify = false;
+          //this.mobileOtpVerify = false;
+          this.registerFlag = false;
           this.thankumessages = true;
         }
         else {
