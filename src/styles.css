@@ -75,27 +75,32 @@ button, input, optgroup, select, textarea {
 a:hover{
     text-decoration: none;
 }
+a:active, a:hover, button:active, button:hover {
+    text-decoration: none;
+}
 /*----container box css---*/
 .img{
-    background: url("/assets/img/background.jpg") center top; 
+    background: url("/assets/img/backg.jpg") center top; 
     width: 100%;
     height: 100vh;
+    background-size: cover; 
 }
 
 .card{
     max-width: 590px;
     padding: 20px;
     margin: 2px auto;
-    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
+    /* box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17); */
     width: 100%;
-    background: #f7f7f8ba;
+    background: #1d301a1a;
     margin-top: 55px;
+    color: white;
 }
 /*---title---*/
 .title{
     text-align: center;
     font-weight: 600;
-    color: blue;
+    color: #ca8e55;
     font-size: 22px;
     line-height: 1.5;
     text-transform: uppercase;
@@ -204,7 +209,7 @@ span.alertInform {
 }
 .cards a {
     text-align: center;
-    color: #fff;
+    color: #4179b0;
     display: block;
     padding: 20px;
     text-decoration: none;

@@ -71,6 +71,10 @@
     padding: 7px 9px;
     border-radius: 20px;
 }
+a:active, a:hover, .btn_test :active,.btn_test :hover{
+    text-decoration: none;
+}
+
 .footer{
 	background: rgb(46, 48, 50);
 	color: #c5c5c5;
@@ -118,7 +122,8 @@
     
 }
 .top_padding{
-    padding-top: 70px;
+    padding-top: 50px;
+    width: 17%;
 }
 .mail_btn{
     background-color: #BE1F2D;
