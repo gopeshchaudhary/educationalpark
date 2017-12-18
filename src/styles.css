@@ -80,26 +80,27 @@ a:active, a:hover, button:active, button:hover {
 }
 /*----container box css---*/
 .img{
-    background: url("/assets/img/background.jpg") center top; 
+    background: url("/assets/img/backg.jpg") center top; 
     width: 100%;
     height: 100vh;
-    background-size:cover;
+    background-size: cover;
 }
 
 .card{
     max-width: 590px;
     padding: 20px;
     margin: 2px auto;
-    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
+    /* box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17); */
     width: 100%;
-    background: #f7f7f8ba;
+    background: #1d301a1a;
     margin-top: 55px;
+    color: white;
 }
 /*---title---*/
 .title{
     text-align: center;
     font-weight: 600;
-    color: blue;
+    color: #ca8e55;
     font-size: 22px;
     line-height: 1.5;
     text-transform: uppercase;
@@ -202,15 +203,13 @@ span.alertInform {
     margin-top: 20px;
 }
 .cards {
-    
-    background: #f1bf26;
+    background: #ececec;
     text-align: center;
-    box-shadow: 0px 0px 2px 1px #00000029;
-
+    box-shadow: 1px 2px 3px 1px #00000052;
 }
 .cards a {
     text-align: center;
-    color: #fff;
+    color: #4179b0;
     display: block;
     padding: 20px;
     text-decoration: none;
@@ -219,8 +218,8 @@ span.alertInform {
 }
 .cards a:hover{ text-decoration: none;     color: #3cb1cb;}
 .cards h3 {
-    /* background: #f1bf26; */
-    background: linear-gradient(-141deg, #EE7752, #E73C7E, #23a6d5, #23d5ab);
+    background: #417ab0;
+    /* background: linear-gradient(-141deg, #EE7752, #E73C7E, #23a6d5, #23d5ab); */
     background-size: 400% 400%;
     box-shadow: 0px 0px 2px 0px #000;
     padding: 13px 20px;
