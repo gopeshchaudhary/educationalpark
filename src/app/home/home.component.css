@@ -3,6 +3,7 @@
     /* height: 150px; */
     float: left;
     width: 100%;
+    background-size: cover;
 }
 .bannerbox{
     position: fixed;
